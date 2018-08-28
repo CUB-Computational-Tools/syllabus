@@ -1,3 +1,8 @@
+---
+layout: default
+permalink: /
+---
+
 # Week 1
  - introductions
  - format
