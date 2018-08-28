@@ -3,11 +3,23 @@ layout: default
 permalink: /
 ---
 
+# Syllabus
+
+This is the Syllabus for the Computational Tools class. This is an evolving document, please check back often.
+
 # Week 1
- - introductions
- - format
- - scheduling
- - intro to Git
+
+## Topics
+ - Logistics
+ - Scheduling
+ - Class Format
+ - Intro to Git & GitHub
+
+![](/assets/version_control.png)
+
+## Cheatsheets
+ - [Using Git](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
+ - [Markdown (GitHub flavored)](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 ## Homework
  - https://learngitbranching.js.org/ (Introduction to Git Commits, Branching in Git, Merging in Git) for people to get a visual of the workflow, and then the entire Git-It sequence for people to set everything up locally and practice it (https://github.com/jlord/git-it-electron#what-to-install) - includes installation (Windows and Mac), configuration, repositories, commits, forks, branches, GitHub remotes, and an actual collaboration exercise.
@@ -16,9 +28,7 @@ permalink: /
  - R & RStudio for Rmarkdown
  - optional text editors for writing markdown / coding in python: sublime or atom
 
-## Cheatsheets
-  - Git
-  - Markdown
+
 
 # Week 2
 - intro data types, control, functions, etc. (see Greg's notes)
@@ -79,8 +89,9 @@ permalink: /
 
 # Week 12
 - test the group assignments
+- Happy Thanksgiving!
 
-# Week 13 (after Thanksgiving break)
+# Week 13
 - present final assignments
 - class choice topic
 
