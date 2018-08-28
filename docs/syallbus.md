@@ -24,19 +24,28 @@ This is the Syllabus for the Computational Tools class. This is an evolving docu
 
 ## Homework
 1. Create a [GitHub](https://www.github.com) account
-2. Learn the basics of git & GitHub
-  - to get a visual of how git works, complete the first 3 lessons of the Introduction Sequence at https://learngitbranching.js.org/ (Introduction to Git Commits, Branching in Git, Merging in Git)
-  - follow the installation instructions for [Git-it](https://github.com/jlord/git-it-electron#what-to-install) (Mac/Windows available), this includes the installation of a GitHub GUI with command line tools and a text editor of your choice (Atom or Sublime)
-  - start Git-It on your desktop and complete the entire Git-It sequence to learn git configuration, working with repositories, commits, forks, branches, GitHub remotes, and an actual collaboration exercise.
-3. Join the Introductory Group exercise on GitHub Classroom by following [this link](https://classroom.github.com/g/laiMXd9w) and picking the already existing `class`
-4. Complete the exercise at https://github.com/2018-Computational-Tools/group-info-class (only accessible after you've joined in the previous step)
+2. Learn the basics of git & GitHub by completing the following steps:
+  - to get a visual of how git works, complete the first 3 lessons of the Introduction Sequence at [Learning Git Branching](https://learngitbranching.js.org/) (Introduction to Git Commits, Branching in Git, Merging in Git)
+  - follow the installation instructions for [Git-it](https://github.com/jlord/git-it-electron#what-to-install) (Mac/Windows available), this includes the installation of a GitHub GUI with command line tools and a text editor of your choice (suggested are Atom or Sublime)
+  - start Git-It on your desktop and complete the entire program to learn git configuration, working with repositories, commits, forks, branches, GitHub remotes, and an actual collaboration exercise.
+3. Join the Introductory Group exercise on GitHub Classroom by following [this link](https://classroom.github.com/g/laiMXd9w) and picking the already existing group `class` (we'll all work together on this one)
+4. Complete the exercise outlined in the README of the [group repository](https://github.com/2018-Computational-Tools/group-info-class)  (only accessible after you've joined in the previous step)
 5. In preparation for next class, install the following software on your computer:
-  - anaconda
-  - R
-  - RStudio
+ - anaconda
+ - R
+ - RStudio
 
 # Week 2
 - intro data types, control, functions, etc. (see Greg's notes)
+- \\( \LaTeX \\) math
+
+$$
+\frac{Q^*}{Q} = \left(\frac{m^*}{m}\right)^{3n/2}
+\frac{\sigma}{\sigma^*} \prod_i \frac{\nu_i^*}{\nu_i}
+\frac{e^{-U_i^*/2}}{e^{-U_i/2}} \frac{1-e^{-U_i}}{1-e^{-U_i^*}}
+$$
+
+
 
 ## Homework
 - basic tutorials for R and Python
