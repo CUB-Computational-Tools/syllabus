@@ -15,7 +15,7 @@ This is the Syllabus for the Computational Tools class. This is an evolving docu
  - Class Format
  - Intro to Git & GitHub
 
-![](/assets/version_control.png)
+![](https://files.meetup.com/18422985/yuSjmlk.png)
 
 ## Cheatsheets
  - [Using Git](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
