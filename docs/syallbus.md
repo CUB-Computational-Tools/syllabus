@@ -18,7 +18,7 @@ This is the Syllabus for the Computational Tools class. This is an evolving docu
  - Class Format
  - Intro to Git & GitHub
 
-## Cheatsheets
+## Materials
  - [Using Git](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
  - [Markdown (GitHub flavored)](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
@@ -26,17 +26,22 @@ This is the Syllabus for the Computational Tools class. This is an evolving docu
 1. Create a [GitHub](https://www.github.com) account
 2. Learn the basics of git & GitHub by completing the following steps:
   - to get a visual of how git works, complete the first 3 lessons of the Introduction Sequence at [Learning Git Branching](https://learngitbranching.js.org/) (Introduction to Git Commits, Branching in Git, Merging in Git)
-  - follow the installation instructions for [Git-it](https://github.com/jlord/git-it-electron#what-to-install) (Mac/Windows available), this includes the installation of a GitHub GUI with command line tools and a text editor of your choice (suggested are Atom or Sublime)
+  - follow the installation instructions for [Git-it](https://github.com/jlord/git-it-electron#what-to-install) (Mac/Windows available), this includes the installation of a GitHub GUI with command line tools and a text editor of your choice (suggested are [Atom](/atom/) or [Sublime](https://www.sublimetext.com/), both are excellent and will do the job, just read their websites and decide which resonates best with you)
   - start Git-It on your desktop and complete the entire program to learn git configuration, working with repositories, commits, forks, branches, GitHub remotes, and an actual collaboration exercise.
 3. Join the Introductory Group exercise on GitHub Classroom by following [this link](https://classroom.github.com/g/laiMXd9w) and picking the already existing group `class` (we'll all work together on this one)
 4. Complete the exercise outlined in the README of the [group repository](https://github.com/2018-Computational-Tools/group-info-class)  (only accessible after you've joined in the previous step)
-5. In preparation for next class, install the following software on your computer:
- - anaconda
- - R
- - RStudio
+5. In preparation for next class, install the following software on your computer (you don't have to use it yet, we just want you to be ready to dive straight in at the beginning of class):
+  - [Python 3 & Jupyter notebooks](https://jupyter.readthedocs.io/en/latest/install.html) (easiest by following the recommendation to install anaconda)
+  - [R](https://cloud.r-project.org/) & [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
 
 # Week 2
-- intro data types, control, functions, etc. (see Greg's notes)
+
+## Topics
+- intro juypter notebooks & RMarkdown
+- primitive data types
+- control structures
+- functions
+- objects
 - \\( \LaTeX \\) math
 
 $$
@@ -45,72 +50,160 @@ $$
 \frac{e^{-U_i^*/2}}{e^{-U_i/2}} \frac{1-e^{-U_i}}{1-e^{-U_i^*}}
 $$
 
-
+## Materials
+- latex math
+- [RStudio](https://raw.githubusercontent.com/rstudio/Materials/master/rstudio-ide.pdf)
+- [RMarkdown](https://raw.githubusercontent.com/rstudio/Materials/master/rmarkdown-2.0.pdf)
+- Jupyter
+- tbc
 
 ## Homework
 - basic tutorials for R and Python
-
-## Cheatsheets
-- latex
-- Jupyter (?)
-- RMarkdown
+- tbc
 
 # Week 3
-- data structures (arrays, frames, etc.), plotting, data import, data exchange
 
-## Cheatsheets
+## Topics
+- linting
+- data structures (arrays, frames, etc.)
+- plotting
+- data import/export
+- tbc
+
+## Materials
 - numpy
 - matplotlib
 - dplyr & tidyr
 - ggplot
 - data import (R & python)
+- tbc
 
 ## Homework
-- do tutorials on plotting & data structure and start the projects
+- tutorials on plotting & data structure
+- start individual semester projects
+- tbc
 
 # Week 4
-- continue data structures & data structure manipulation
 
-## Cheatsheets
+## Topics
+- data structures continued
+- data wrangling
+- tbc
+
+## Homework
+- continue individual projects
+- tbc
+
+## Materials
 - pandas
 - xarray
-
-## Homework
-- do more on the projects (part of the homework every week hereafter)
+- tbc
 
 # Week 5
-- loose ends and project coding optimization (document better, functionalize, etc.)
-- group discussion + plan for implementing Fluid Earth and/or Geochem and/or Earth & Planetary inference problem set
 
-# Week 6
-- packaging & documentation
-
-# Week 7
-- unit testing, error handling & test-driven development
-
-## Cheatsheets
-- testthat
-
-# Week 8-9
-- numerical tools & Landlab
+## Topics
+- project progress
+- loose ends on data structures, plotting, etc.
+- group discussion & plan on problem sets implementation
+- tbc
 
 ## Homework
+- start group problem sets
+- continue individual projects
+- tbc
+
+## Materials
+- tbc
+
+# Week 6
+
+## Topics
+- code optimization strategies
+- code packaging & documentation
+- tbc
+
+## Homework
+- continue group problem sets
+- continue individual projects
+- tbc
+
+## Materials
+- R package development
+- tbc
+
+# Week 7
+
+## Topics
+- error handling
+- unit testing
+- test-driven development
+- tbc
+
+## Homework
+- continue group problem sets
+- continue individual projects
+- tbc
+
+## Materials
+- testthat
+- tbc
+
+# Week 8 + 9
+
+## Topics
+- numerical tools
+- Landlab
+- tbc
+
+## Homework
+- continue group problem sets
+- continue individual projects
 - create a particle.io account
 - install particle dev
 
-# Week 10-11
-- microntrollers & data logging
+## Materials
+- tbc
+
+# Week 10 + 11
+
+## Topics
+- microcontrollers
+- data logging
+
+## Homework
+- continue group problem sets
+- continue individual projects
+- tbc
+
+## Materials
+- tbc
 
 # Week 12
-- test the group assignments
+
+## Topics
+- test the group problem sets
+
+## Homework
+- finalize group problem sets
 - Happy Thanksgiving!
 
 # Week 13
-- present final assignments
-- class choice topic
+
+## Topics
+- present final group problem sets
+- topic chosen by the class, some options:
+  - graphical user interfaces
+  - text processing & regular expressions
+  - databases
+
+## Homework
+- finalize individual project
 
 # Week 14
+
+## Topics
 - present final individual project
+- wrap-up
 
 # Week 15
-- party at AGU
+Party at AGU!
