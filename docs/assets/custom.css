@@ -1,3 +1,4 @@
+/* navigation bar */
 nav[data-toggle='toc'] {
   margin-top: 50px;
 }
@@ -15,6 +16,53 @@ nav[data-toggle='toc'] {
   }
 
 }
+
+/* image styles */
+
+.figure-container {
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 0px;
+}
+
+.figure-block {
+  display: inline-block;
+}
+
+figure {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+figcaption {
+  padding-top: 5px;
+  padding-bottom: 0px;
+  text-align: center;
+  font-style: italic;
+}
+
+.gap-right {
+  margin-right: 10px;
+}
+
+.gap-left {
+  margin-left: 10px;
+}
+
+.border {
+  border: 2px solid rgb(33,33,33);
+}
+
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
 
 /* git hub markdown style table formatting */
 

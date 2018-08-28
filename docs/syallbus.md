@@ -9,13 +9,14 @@ This is the Syllabus for the Computational Tools class. This is an evolving docu
 
 # Week 1
 
+{% include image.md file="images/version_control.png" width="400" wrap="right" %}
+
 ## Topics
+
  - Logistics
  - Scheduling
  - Class Format
  - Intro to Git & GitHub
-
-{% include image.md file="version_control.png" width="150" %}
 
 ## Cheatsheets
  - [Using Git](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
