@@ -23,13 +23,17 @@ This is the Syllabus for the Computational Tools class. This is an evolving docu
  - [Markdown (GitHub flavored)](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 ## Homework
- - https://learngitbranching.js.org/ (Introduction to Git Commits, Branching in Git, Merging in Git) for people to get a visual of the workflow, and then the entire Git-It sequence for people to set everything up locally and practice it (https://github.com/jlord/git-it-electron#what-to-install) - includes installation (Windows and Mac), configuration, repositories, commits, forks, branches, GitHub remotes, and an actual collaboration exercise.
- - Git & Github Desktop
- - anaconda for python 3 & jupyter notebooks
- - R & RStudio for Rmarkdown
- - optional text editors for writing markdown / coding in python: sublime or atom
-
-
+1. Create a [GitHub](https://www.github.com) account
+2. Learn the basics of git & GitHub
+  - to get a visual of how git works, complete the first 3 lessons of the Introduction Sequence at https://learngitbranching.js.org/ (Introduction to Git Commits, Branching in Git, Merging in Git)
+  - follow the installation instructions for [Git-it](https://github.com/jlord/git-it-electron#what-to-install) (Mac/Windows available), this includes the installation of a GitHub GUI with command line tools and a text editor of your choice (Atom or Sublime)
+  - start Git-It on your desktop and complete the entire Git-It sequence to learn git configuration, working with repositories, commits, forks, branches, GitHub remotes, and an actual collaboration exercise.
+3. Join the Introductory Group exercise on GitHub Classroom by following [this link](https://classroom.github.com/g/laiMXd9w) and picking the already existing `class`
+4. Complete the exercise at https://github.com/2018-Computational-Tools/group-info-class (only accessible after you've joined in the previous step)
+5. In preparation for next class, install the following software on your computer:
+  - anaconda
+  - R
+  - RStudio
 
 # Week 2
 - intro data types, control, functions, etc. (see Greg's notes)
