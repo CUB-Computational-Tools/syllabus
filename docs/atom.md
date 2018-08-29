@@ -9,7 +9,7 @@ permalink: /atom
 
 # Installation & Setup
 
-1. Download and install Atom for your operating system (Instructions for [Mac](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-mac) | [Windows](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-windows) | [Linux](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux))
+1. Download and install Atom for your operating system (Instructions for [Mac](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-mac), [Windows](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-windows), [Linux](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux))
 1. Start Atom and add repository folder(s) you want to work with as new projects with `File > Add Project Folder`
 1. Install and configure the extensions you want to work with through the user interface or via command line - see the official [Instructions for installing packages](http://flight-manual.atom.io/using-atom/sections/atom-packages/) (sometimes you may have to restart atom for new packages to function properly)
 1. One package that is universally useful to have within Atom is the terminal: [see details here](https://atom.io/packages/platformio-ide-terminal).
