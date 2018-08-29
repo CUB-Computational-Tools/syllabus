@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /atom/
+permalink: /atom
 ---
 
 # Atom
