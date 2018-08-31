@@ -22,14 +22,14 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
 
 {% include image.md file="images/version_control.png" width="400" wrap="right" %}
 
-### Topics
+### Topics (in class)
 
  - Logistics
  - Scheduling
  - Class Format
  - Intro to Git & GitHub
 
-### Materials
+### Materials & Resources
  - [Using Git](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
  - [Markdown (GitHub flavored)](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
@@ -57,12 +57,12 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
  - install the newest version of [R](https://cloud.r-project.org/) (should be 3.5.1), if you have older versions you want to keep you will still have access (see [details on version switching](https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-RStudio-desktop))
  - install/upgrade to the preview of the newest version of [RStudio](https://www.rstudio.com/products/rstudio/download/preview/) (should be >= 1.2.907)
  - start RStudio
- - in the console, run `install.packages(c("devtools", "tidyverse", "caTools", "bitops", "rmarkdown", "reticulate", "readxl", "latex2exp"))`
+ - in the console, run `install.packages(c("devtools", "tidyverse", "rmarkdown", "reticulate", "readxl", "latex2exp"))`
  - all done!
 
 ## Week 2
 
-### Topics
+### Topics (in class)
 - intro juypter notebooks & RMarkdown
 - primitive data types
 - control structures
@@ -76,7 +76,7 @@ $$
 \frac{e^{-U_i^*/2}}{e^{-U_i/2}} \frac{1-e^{-U_i}}{1-e^{-U_i^*}}
 $$
 
-### Materials
+### Materials & Resources
 - latex math
 - [RStudio](https://raw.githubusercontent.com/rstudio/Materials/master/rstudio-ide.pdf)
 - [RMarkdown](https://raw.githubusercontent.com/rstudio/Materials/master/rmarkdown-2.0.pdf)
@@ -85,18 +85,18 @@ $$
 
 ### Homework
 - basic tutorials for R and Python
-
+- tbc
 
 ## Week 3
 
-### Topics
+### Topics (in class)
 - linting
 - data structures (arrays, frames, etc.)
 - plotting
 - data import/export
 - tbc
 
-### Materials
+### Materials & Resources
 - numpy
 - matplotlib
 - dplyr & tidyr
@@ -111,7 +111,7 @@ $$
 
 ## Week 4
 
-### Topics
+### Topics (in class)
 - data structures continued
 - data wrangling
 - tbc
@@ -120,14 +120,14 @@ $$
 - continue individual projects
 - tbc
 
-### Materials
+### Materials & Resources
 - pandas
 - xarray
 - tbc
 
 ## Week 5
 
-### Topics
+### Topics (in class)
 - project progress
 - loose ends on data structures, plotting, etc.
 - group discussion & plan on problem sets implementation
@@ -138,12 +138,12 @@ $$
 - continue individual projects
 - tbc
 
-### Materials
+### Materials & Resources
 - tbc
 
 ## Week 6
 
-### Topics
+### Topics (in class)
 - code optimization strategies
 - code packaging & documentation
 - tbc
@@ -153,13 +153,13 @@ $$
 - continue individual projects
 - tbc
 
-### Materials
+### Materials & Resources
 - R package development
 - tbc
 
 ## Week 7
 
-### Topics
+### Topics (in class)
 - error handling
 - unit testing
 - test-driven development
@@ -170,13 +170,13 @@ $$
 - continue individual projects
 - tbc
 
-### Materials
+### Materials & Resources
 - testthat
 - tbc
 
 ## Week 8 + 9
 
-### Topics
+### Topics (in class)
 - numerical tools
 - Landlab
 - tbc
@@ -187,12 +187,12 @@ $$
 - create a particle.io account
 - install particle dev
 
-### Materials
+### Materials & Resources
 - tbc
 
 ## Week 10 + 11
 
-### Topics
+### Topics (in class)
 - microcontrollers
 - data logging
 
@@ -201,12 +201,12 @@ $$
 - continue individual projects
 - tbc
 
-### Materials
+### Materials & Resources
 - tbc
 
 ## Week 12
 
-### Topics
+### Topics (in class)
 - test the group problem sets
 
 ### Homework
@@ -215,7 +215,7 @@ $$
 
 ## Week 13
 
-### Topics
+### Topics (in class)
 - present final group problem sets
 - topic chosen by the class, some options:
   - graphical user interfaces
@@ -227,7 +227,7 @@ $$
 
 ## Week 14
 
-### Topics
+### Topics (in class)
 - present final individual project
 - wrap-up
 
