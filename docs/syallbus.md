@@ -11,7 +11,7 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
 
 - **GitHub**: [https://github.com/2018-Computational-Tools](https://github.com/2018-Computational-Tools)
 - **Website**: [https://2018-computational-tools.github.io](https://2018-computational-tools.github.io)
-- **Course #**: 5700-??? (TBD)
+- **Course #**: GEOL-5700-020
 - **Time**: Tuesdays 4-6pm
 - **Place**: Benson 340E (larger alternative TBD)
 - **Credits**: 2
@@ -46,16 +46,16 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
 #### Installing python and jupyter
 
  - we recommend installing [anaconda](https://docs.anaconda.com/anaconda/install/) for python 3.6 (if you already have anaconda for python 2.7, no need to reinstall!)
- - open a terminal and run `conda --version` to check the installed version (if lower than **conda 4.3**, recommend running `conda install conda=4.3.29` but not later versions due to major changes at 4.4)
+ - open a terminal and run `conda --version` to check the installed version (if lower than **conda 4.4**, recommend running `conda update conda`)
  - create a virtual environment for python 3.6 that we will use for the class (that way you can easily keep/run other python versions/configurations) by running `conda create -n class python=3.6 anaconda`
- - run `source activate class` (mac & linux) / `activate class` (windows) to test-activate the new environment
+ - run `source activate class` (mac & linux) / `activate class` (windows) to test-activate the new virtual environment
  - check that running `python --version` gives **Python 3.6.5 :: Anaconda, Inc.**
  - run `source deactivate` (mac & linux) / `deactivate` (windows) to leave the virtual environment again
  - all done!
 
 #### Installing R and RStudio
  - install the newest version of [R](https://cloud.r-project.org/) (should be 3.5.1), if you have older versions you want to keep you will still have access (see [details on version switching](https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-RStudio-desktop))
- - install/upgrade to the newest version of [RStudio](https://www.rstudio.com/products/rstudio/download/##download) (should be 1.1.456)
+ - install/upgrade to the preview of the newest version of [RStudio](https://www.rstudio.com/products/rstudio/download/preview/) (should be >= 1.2.907)
  - start RStudio
  - in the console, run `install.packages(c("devtools", "tidyverse", "caTools", "bitops", "rmarkdown", "reticulate", "readxl", "latex2exp"))`
  - all done!
@@ -85,6 +85,7 @@ $$
 
 ### Homework
 - basic tutorials for R and Python
+
 
 ## Week 3
 
