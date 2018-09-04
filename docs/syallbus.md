@@ -30,8 +30,8 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
  - Intro to Git & GitHub
 
 ### Materials & Resources
- - [Using Git](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
- - [Markdown (GitHub flavored)](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+ - [Using Git Cheatsheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
+ - [Markdown (GitHub flavored) Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 ### Homework
 1. Create a [GitHub](https://www.github.com) account
@@ -55,7 +55,7 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
 
 #### Installing R and RStudio
  - install the newest version of [R](https://cloud.r-project.org/) (should be 3.5.1), if you have older versions you want to keep you will still have access (see [details on version switching](https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-RStudio-desktop))
- - install/upgrade to the preview of the newest version of [RStudio](https://www.rstudio.com/products/rstudio/download/preview/) (should be >= 1.2.907)
+ - install/upgrade to the [preview of the newest version of RStudio](https://www.rstudio.com/products/rstudio/download/preview/) (should be >= 1.2.907)
  - start RStudio
  - in the console, run `install.packages(c("devtools", "tidyverse", "rmarkdown", "reticulate", "readxl", "latex2exp"))`
  - all done!
@@ -63,29 +63,45 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
 ## Week 2
 
 ### Topics (in class)
-- intro juypter notebooks & RMarkdown
+- get your playground from GitHubClassroom (follow [this link](https://classroom.github.com/a/-QXQGmbx)) and clone it to your system
+- intro juypter notebooks & RMarkdown + - \\( \LaTeX \\) math
 - primitive data types
 - control structures
 - functions
-- objects
-- \\( \LaTeX \\) math
-
-$$
-\frac{Q^*}{Q} = \left(\frac{m^*}{m}\right)^{3n/2}
-\frac{\sigma}{\sigma^*} \prod_i \frac{\nu_i^*}{\nu_i}
-\frac{e^{-U_i^*/2}}{e^{-U_i/2}} \frac{1-e^{-U_i}}{1-e^{-U_i^*}}
-$$
 
 ### Materials & Resources
-- latex math
-- [RStudio](https://raw.githubusercontent.com/rstudio/Materials/master/rstudio-ide.pdf)
-- [RMarkdown](https://raw.githubusercontent.com/rstudio/Materials/master/rmarkdown-2.0.pdf)
-- Jupyter
-- tbc (to be continued)
+- [Jupyter Notebook documentation](https://jupyter-notebook.readthedocs.io/)
+- [RMarkdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+- latex math Cheatsheet
+- [Jupyter Notebook Cheatsheet](http://datacamp-community.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40)
+- python basics cheatsheet
+- [RStudio Cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rstudio-ide.pdf)
+- [RMarkdown Cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rmarkdown-2.0.pdf)
+- [dplyr Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf)
+- [tidyr Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
 
 ### Homework
-- basic tutorials for R and Python
-- tbc
+
+#### Python
+
+Complete lessons **Hello World** through **Functions** in the **Learn the basics** section of [learnpython.org](https://www.learnpython.org/) (for good practice we recommend writing the solutions in a jupyter notebook or RMarkdown file in your playground).
+
+#### R
+
+Two options. If you are a beginner, both are worth doing for the additional practice.
+
+1. Swirl exercises
+  - in your RStudio console, run/complete the following
+  - `install.packages("swirl")`
+  - `swirl::install_course("R Programming")`
+  - `swirl::install_course("Getting and Cleaning Data")`
+  - `swirl::swirl()`
+  - select the **R Programming course** in the resulting menu and complete lessons **Basic Building Blocks** through **Functions**
+  - select the **Getting and Cleaning Data** and complete lessons **Manipulating Data with dplyr**, **Grouping and Chaining with dplyr** and **Tidying Data with tidyr**
+
+2. Data Carpentry workshop
+  - go to the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/) (the data is for ecology but the approach is universal)
+  - complete chapters 1-4 (**Before we start** to **Manipulating data frames**)
 
 ## Week 3
 
