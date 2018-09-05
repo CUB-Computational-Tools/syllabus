@@ -65,9 +65,9 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
 ### Topics (in class)
 - get your playground from GitHubClassroom (follow [this link](https://classroom.github.com/a/-QXQGmbx)) and clone it to your system
 - intro juypter notebooks & RMarkdown + - \\( \LaTeX \\) math
-- primitive data types
-- control structures
-- functions
+- data types
+- control structures --> didn't get to it, resume next week
+- functions --> didn't get to it, resume next week
 
 ### Materials & Resources
 - [Jupyter Notebook documentation](https://jupyter-notebook.readthedocs.io/)
@@ -130,11 +130,12 @@ Complete one or both of the following lessons. Doing both is probably overkill i
 ## Week 3
 
 ### Topics (in class)
-- linting
+- control structures
+- functions
 - data structures (arrays, frames, etc.)
-- plotting
-- data import/export
-- tbc
+- maybe: linting
+- maybe: plotting
+- maybe: data import/export
 
 ### Materials & Resources
 - numpy
