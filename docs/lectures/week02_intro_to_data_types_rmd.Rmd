@@ -1,0 +1,217 @@
+---
+title: "Introduction to data types"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    toc_depth: 2
+    number_sections: yes
+editor_options:
+  chunk_output_type: inline
+---
+
+
+```{r setup, include=FALSE}
+library(reticulate)
+# load python
+use_condaenv("class", conda = "auto", required = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Basic data types
+
+## Integer
+
+```{python}
+# python
+a = 2
+print(type(a))
+```
+
+```{r}
+# R
+a <- 2L # without the L, R makes this a numeric
+str(a)
+```
+
+## Numeric (doubles)
+
+```{python}
+# python
+b = 2.
+print(type(b))
+```
+
+```{r}
+# R
+b <- 2
+str(b)
+```
+
+## Character / String
+
+```{python}
+# python
+c = "2"
+print(type(c))
+d = "two"
+print(type(d))
+print(c + d) # python allows + to concatenate strings
+```
+
+```{r}
+# R
+c <- "2"
+str(c)
+d <- "two"
+str(d)
+tryCatch(c + d, error = function(e) warning(e)) # R does not allow + for strings
+paste0(c, d) # use paste or paste0 functions instead
+```
+
+## Complex Numbers
+
+```{python}
+# python
+e = 2 + 2j
+print(type(e))
+```
+
+```{r}
+# R
+e <- 2+2i
+str(e)
+```
+
+## Boolean / Logical
+
+```{python}
+# python
+f = a == 2
+print(type(f))
+f = False # or True
+print(type(f))
+```
+
+```{r}
+# R
+f <- a == 2
+str(f)
+f <- FALSE # or TRUE
+str(f)
+```
+
+## Null / None
+
+```{python}
+# python
+g = None
+print(type(g))
+```
+
+```{r}
+# R
+g <- NULL
+str(g)
+```
+
+## Missing data
+
+```{python}
+# python - ?
+None
+```
+
+```{r}
+# R - NA constant defined for each basic data type
+str(NA_integer_)
+str(NA_real_)
+str(NA_character_)
+str(NA_complex_)
+str(NA)
+```
+
+
+# Structured data types
+
+## Lists
+
+```{python}
+# python
+shopping = ["pear", 2, 3.1459]
+print(shopping)
+# indices select list element and start with 0
+print(shopping[1]) 
+```
+
+```{r}
+# R
+shopping <- list("pear", 2, 3.1459)
+str(shopping)
+# indices select sub list and start with 1
+str(shopping[1])
+str(shopping[[1]]) # use [[]] to select list element
+```
+
+### Modifying Lists
+
+```{python}
+# python
+shopping.append("honey") 
+shopping += ["sour cream"] # quick syntax for append
+shopping[1] = [1, 2, 3] 
+print(shopping)
+```
+
+```{r}
+# R
+shopping <- c(shopping, list("honey", "sour cream")) 
+shopping[2] <- list(1:3) 
+shopping[[2]] <- 1:3 # same as above
+str(shopping)
+```
+
+## Tuples
+
+```{python}
+# tuple
+mytup = (1, 2., "3")
+print(mytup)
+
+# tuples cannot be changed
+try: 
+  mytup[0] = 5
+except:
+  print("Unexpected error:", sys.exc_info()[1])
+```
+
+```{r}
+# R - tuples do not exist, the one created in python is simply a regular list
+str(py$mytup)
+```
+
+## Dictionaries (named lists)
+
+```{python}
+# python
+dict = {"spoons" : 5, "frog" : "green"}
+print(dict)
+print(type(dict))
+print(dict["frog"]) # select list element by name
+dict["gravity"] = 9.81 # re-assign list element by name
+print(dict.keys()) # print all keys
+print(dict.values()) # print all values
+```
+
+
+```{r}
+# R - dictionaries don't exist separately, the one created in pythin is simply a named list
+str(py$dict)
+dict <- list("spoons" = 5, "frog" = "green", "no name") # mixed named and unnamed lists supported
+str(dict)
+dict$gravity <- 9.81 # modify by name
+str(dict[[1]]) # select by index
+str(dict$spoons) # or by name
+str(names(dict)) # print all keys (names)
+str(unname(dict)) # remove names to get values only
+```

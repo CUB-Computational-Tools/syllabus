@@ -1,0 +1,31 @@
+---
+title: "Lectures"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+
+```{r, results='asis', echo=FALSE}
+data_frame(
+  filepath = list.files(".", all.files = TRUE, pattern = "*\\.html$"),
+  html_file = basename(filepath),
+  week = str_extract(html_file, "^week\\d+"),
+  type = case_when(
+    str_detect(html_file, fixed("_nb.html")) ~ "Jupyter Notebook",
+    str_detect(html_file, fixed("_rmd.html")) ~ "RMarkdown Notebook",
+    TRUE ~ NA_character_),
+  src_file = html_file %>% 
+    str_replace(fixed("_nb.html"), "_nb.ipynb") %>% 
+    str_replace("_rmd.html", "_rmd.Rmd")
+) %>% 
+  filter(filepath != "index.html", !is.na(type)) %>% 
+  nest(-week) %>% 
+  with(walk2(week, data, function(week, data) {
+    cat("\n\n##", week, "\n")
+    cat(paste0("\n - [", data$type, "](", data$src_file, ") (rendered [HTML](", data$html_file, "))"))
+  }))
+```
+
