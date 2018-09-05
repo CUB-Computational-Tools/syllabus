@@ -30,8 +30,8 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
  - Intro to Git & GitHub
 
 ### Materials & Resources
- - [Using Git Cheatsheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
- - [Markdown (GitHub flavored) Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+ - [Using Git cheatsheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
+ - [Markdown (GitHub flavored) cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 ### Homework
 1. Create a [GitHub](https://www.github.com) account
@@ -71,37 +71,61 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
 
 ### Materials & Resources
 - [Jupyter Notebook documentation](https://jupyter-notebook.readthedocs.io/)
+  - [list of available kernels for other languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
 - [RMarkdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-- latex math Cheatsheet
-- [Jupyter Notebook Cheatsheet](http://datacamp-community.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40)
-- python basics cheatsheet
-- [RStudio Cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rstudio-ide.pdf)
-- [RMarkdown Cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rmarkdown-2.0.pdf)
-- [dplyr Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf)
-- [tidyr Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+  - [list of available engines for other languages](https://bookdown.org/yihui/rmarkdown/language-engines.html)
+- [latex math cheatsheet](https://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf)
+- [Jupyter Notebook cheatsheet](http://datacamp-community.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40)
+- [Python basics cheatsheet](http://datacamp-community.s3.amazonaws.com/e30fbcd9-f595-4a9f-803d-05ca5bf84612)
+- [RStudio cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rstudio-ide.pdf)
+- [RMarkdown cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rmarkdown-2.0.pdf)
+- resources for the optional materials this week (necessary the following week):
+  - [numpy cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
+  - [pandas cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PandasPythonForDataScience.pdf)
+  - [dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf)
+  - [tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
 
 ### Homework
 
+Play with your `playground-...` repository and the tutorials listed below. We recommend writing solutions down in Jupyter or RMarkdown notebooks for good practice. Also, git is your friend for keeping track of changes although branches are more optional if you're the only user of the repository. Quick reminder on launching Jupyter notebooks and RStudio:
+
+ - Jupyter notebooks:
+   - either open a terminal in your repository folder and start jupyter notebooks from there, OR start it in any parent folder and navigate to your files manually
+   - run `source activate class` (mac & linux) / `activate class` (windows) to activate the python environment (otherwise it will use your default environment)
+   - run `jupyter notebook` to start the notebook server, navigate to your `.ipynb` files from there (or create new ones)
+   - hit `Ctrl`+`C`+`C` to stop the notebook server when done
+   - run `source deactivate` (mac & linux) / `deactivate` (windows) to leave the virtual environment again
+- RStudio:
+  - double click the `project.Rproj` file in your repository folder or navigate to it from the project menu in the upper right corner of RStudio
+  - **troubleshooting note** on using python inside RMarkdown files: MacOS users may need to expose their path so the proper python version is found and used, do this by running the following command from your terminal:
+  - `echo -e "#expose bash PATH to R\nPATH=$PATH" >>  ~/.Renviron`
+
 #### Python
 
-Complete lessons **Hello World** through **Functions** in the **Learn the basics** section of [learnpython.org](https://www.learnpython.org/) (for good practice we recommend writing the solutions in a jupyter notebook or RMarkdown file in your playground).
+ - complete lessons **Hello World** through **Functions** in the **Learn the basics** section of [learnpython.org](https://www.learnpython.org/)
+ - create your own RMarkdown or Jupyter notebooks to complete the exercises
+ - optional (may be useful already next week, necessary the following week):
+   - **Numpy Arrays** and **Pandas Basics** in the **Data Science Tutorials** section of [learnpython.org](https://www.learnpython.org/)
 
 #### R
 
-Two options. If you are a beginner, both are worth doing for the additional practice.
+Complete one or both of the following lessons. Both may be worth doing for the additional practice.
 
-1. Swirl exercises
+1. Swirl (interactive exercises from within R)
   - in your RStudio console, run/complete the following
   - `install.packages("swirl")`
   - `swirl::install_course("R Programming")`
   - `swirl::install_course("Getting and Cleaning Data")`
   - `swirl::swirl()`
   - select the **R Programming course** in the resulting menu and complete lessons **Basic Building Blocks** through **Functions**
-  - select the **Getting and Cleaning Data** and complete lessons **Manipulating Data with dplyr**, **Grouping and Chaining with dplyr** and **Tidying Data with tidyr**
+  - optional (may be useful already next week, necessary the following week):
+    - select the **Getting and Cleaning Data** and complete lessons **Manipulating Data with dplyr**, **Grouping and Chaining with dplyr** and **Tidying Data with tidyr**
 
-2. Data Carpentry workshop
+2. Data Carpentry workshop (create your own RMarkdown files to complete the challenges)
   - go to the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/) (the data is for ecology but the approach is universal)
-  - complete chapters 1-4 (**Before we start** to **Manipulating data frames**)
+  - complete chapters 1-3 (**Before we start** to **Starting with data**)
+  - optional (may be useful already next week, necessary the following week):
+    - chapter 4 (**Manipulating data frames**)
 
 ## Week 3
 
