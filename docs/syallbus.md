@@ -97,7 +97,9 @@ Play with your `playground-...` repository and the tutorials listed below. We re
    - run `source deactivate` (mac & linux) / `deactivate` (windows) to leave the virtual environment again
 - RStudio:
   - double click the `project.Rproj` file in your repository folder or navigate to it from the project menu in the upper right corner of RStudio
-  - **troubleshooting note** on using python inside RMarkdown files: MacOS users may need to expose their path so the proper python version is found and used, do this by running the following command from your terminal:
+  - **troubleshooting note** on using python inside RMarkdown files:
+  - this does NOT work reliably with RStudio versions < 1.2.900, [preview of the newest version of RStudio](https://www.rstudio.com/products/rstudio/download/preview/) is recommended
+  - MacOS users may need to expose their path so the proper python version is found and used, do this by running the following command from your terminal:
   - `echo -e "#expose bash PATH to R\nPATH=$PATH" >>  ~/.Renviron`
 
 #### Python
@@ -111,7 +113,7 @@ Play with your `playground-...` repository and the tutorials listed below. We re
 
 Complete one or both of the following lessons. Doing both is probably overkill if you're already familiar with the materials but may be worth doing (or skimming) if you'd like to get some additional practice.
 
-1. Swirl (interactive exercises from within R)
+1. Swirl (interactive exercises from within R but keeping a running tap of solutions in RMarkdown may still be useful)
   - in your RStudio console, run/complete the following
   - `install.packages("swirl")`
   - `swirl::install_course("R Programming")`
