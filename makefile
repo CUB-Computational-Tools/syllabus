@@ -5,8 +5,8 @@
 py_venv := class
 
 # adjust the output folders as needed
-file_folder := lectures
-doc_folder := docs
+file_folder := docs/lectures
+doc_folder := .
 rmd_doc_folder := $(doc_folder)
 nb_doc_folder := $(doc_folder)
 
