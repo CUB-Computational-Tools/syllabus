@@ -87,7 +87,7 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
 
 ### Homework
 
-Play with your `playground-...` repository and the tutorials listed below. We recommend writing solutions down in Jupyter or RMarkdown notebooks for good practice. Also, git is your friend for keeping track of changes although branches are more optional if you're the only user of the repository. Quick reminder on launching Jupyter notebooks and RStudio:
+Play with your [`playground-...` repository](https://classroom.github.com/a/-QXQGmbx) and the tutorials listed below. We recommend writing solutions down in Jupyter or RMarkdown notebooks for good practice. Also, git is your friend for keeping track of changes although branches are more optional if you're the only user of the repository. Quick reminder on launching Jupyter notebooks and RStudio:
 
  - Jupyter notebooks:
    - either open a terminal in your repository folder and start jupyter notebooks from there, OR start it in any parent folder and navigate to your files manually
