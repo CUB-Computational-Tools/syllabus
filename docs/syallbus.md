@@ -109,7 +109,7 @@ Play with your `playground-...` repository and the tutorials listed below. We re
 
 #### R
 
-Complete one or both of the following lessons. Both may be worth doing for the additional practice.
+Complete one or both of the following lessons. Doing both is probably overkill if you're already familiar with the materials but may be worth doing (or skimming) if you'd like to get some additional practice.
 
 1. Swirl (interactive exercises from within R)
   - in your RStudio console, run/complete the following
