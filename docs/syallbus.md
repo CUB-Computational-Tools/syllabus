@@ -164,8 +164,6 @@ Complete one or both of the following lessons. Doing both is probably overkill i
 
 Again, complete one or both of the following lessons.
 
-For some background and general reference on these tools, we recommend the online [R for Data Science Book](http://r4ds.had.co.nz/) - an excellent resource for approaches to data science in R. Highly recommend bookmarking the link and using it as a reference whenever you want to learn more about the most up-to-date way of dealing with specific data manipulation and processing problems. For the tools in this homework assignment, the chapter on [**Tiday data** chapter](http://r4ds.had.co.nz/tidy-data.html#tidy-data-1) will provide some valuable background.  For visualization, the [R for Data Science ](http://r4ds.had.co.nz/) chapter on aesthetic mappings (chapter 3.3), chapter on facets (chapter 3.5), and chapter on geometric objects (chapter 3.6) are particularly valuable, as well as the introduction to data types (chapter 1.1) in the the [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/).
-
 1. Swirl
   - `install.packages("swirl")`
   - `swirl::install_course("Getting and Cleaning Data")`
@@ -176,10 +174,11 @@ For some background and general reference on these tools, we recommend the onlin
 
 2. Data Carpentry workshop
   - go to the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/) (the data is for ecology but the approach is universal)
-  - complete chapters 1-3 (**Before we start** to **Starting with data**)
-  - optional (may be useful already next week, necessary the following week):
   - complete chapter 4 (**Manipulating data frames**) of the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/)
   - complete chapter 5 (**Visualizing data**) of the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/)
+
+For some background and general reference on these tools, we recommend the online [R for Data Science Book](http://r4ds.had.co.nz/) - an excellent resource for approaches to data science in R. Highly recommend bookmarking the link and using it as a reference whenever you want to learn more about the most up-to-date way of dealing with specific data manipulation and processing problems. For the tools in this homework assignment, the chapter on [**Tiday data** chapter](http://r4ds.had.co.nz/tidy-data.html#tidy-data-1) will provide some valuable background.  For visualization, the [R for Data Science ](http://r4ds.had.co.nz/) chapter on aesthetic mappings (chapter 3.3), chapter on facets (chapter 3.5), and chapter on geometric objects (chapter 3.6) are particularly valuable, as well as the introduction to data types (chapter 1.1) in the the [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/).
+
 
 ## Week 4
 
