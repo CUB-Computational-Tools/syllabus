@@ -140,17 +140,46 @@ Complete one or both of the following lessons. Doing both is probably overkill i
 - maybe: data import/export
 
 ### Materials & Resources
-- numpy
-- matplotlib
-- dplyr & tidyr
-- ggplot
-- data import (R & python)
-- tbc
+- [numpy cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
+- [pandas cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PandasPythonForDataScience.pdf)
+- [matplotlib cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Python_Matplotlib_Cheat_Sheet.pdf)
+- [R for Data Science Book](http://r4ds.had.co.nz/)
+- [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/)
+- [dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf)
+- [tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+- [ggplot cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf)
 
 ### Homework
-- tutorials on plotting & data structure
-- start individual semester projects
-- tbc
+
+1. Add an item #5 to your profile in the [group repository](https://classroom.github.com/g/laiMXd9w) describing what you plan to do for your individual semester project. Be specific on the goal of your project and what aspects of/skills covered in this class you plan to make use of.
+
+2. Additionally, continue to play with your [`playground-...` repository](https://classroom.github.com/a/-QXQGmbx) and the tutorials listed below.
+
+#### Python
+
+ - complete lessons **Numpy Arrays** and **Pandas Basics** in the **Data Science Tutorials** section of [learnpython.org](https://www.learnpython.org/)
+ - complete the **Matplotlib** [DataCamp Tutorial](https://www.datacamp.com/community/tutorials/matplotlib-tutorial-python)
+
+#### R
+
+Again, complete one or both of the following lessons.
+
+For some background and general reference on these tools, we recommend the online [R for Data Science Book](http://r4ds.had.co.nz/) - an excellent resource for approaches to data science in R. Highly recommend bookmarking the link and using it as a reference whenever you want to learn more about the most up-to-date way of dealing with specific data manipulation and processing problems. For the tools in this homework assignment, the chapter on [**Tiday data** chapter](http://r4ds.had.co.nz/tidy-data.html#tidy-data-1) will provide some valuable background.  For visualization, the [R for Data Science ](http://r4ds.had.co.nz/) chapter on aesthetic mappings (chapter 3.3), chapter on facets (chapter 3.5), and chapter on geometric objects (chapter 3.6) are particularly valuable, as well as the introduction to data types (chapter 1.1) in the the [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/).
+
+1. Swirl
+  - `install.packages("swirl")`
+  - `swirl::install_course("Getting and Cleaning Data")`
+  - `swirl::install_course("Exploratory Data Analysis")`
+  - `swirl::swirl()`
+  - select the **Getting and Cleaning Data** course and complete lessons **Manipulating Data with dplyr**, **Grouping and Chaining with dplyr** and **Tidying Data with tidyr**
+  - select the **Exploratory Data Analysis** course and complete lesson **8: GGPlot2 Part2** (yes, part2, part1 is more about `qplot` which is not as powerful as `ggplot`)
+
+2. Data Carpentry workshop
+  - go to the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/) (the data is for ecology but the approach is universal)
+  - complete chapters 1-3 (**Before we start** to **Starting with data**)
+  - optional (may be useful already next week, necessary the following week):
+  - complete chapter 4 (**Manipulating data frames**) of the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/)
+  - complete chapter 5 (**Visualizing data**) of the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/)
 
 ## Week 4
 
