@@ -1,0 +1,383 @@
+---
+title: "Operators, Functions and More"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    toc_depth: 2
+    number_sections: yes
+editor_options:
+  chunk_output_type: inline
+---
+
+
+```{r setup, include=FALSE}
+# load python
+library(reticulate)
+use_condaenv("class", conda = "auto", required = TRUE)
+```
+
+# Operators
+
+```{python}
+# python
+print(1. + 2.)
+print(10.**2) # exponent
+print(3 / 2)
+print(3 // 2) # integer division
+print(15 % 4) # modulo = remainder
+```
+
+
+```{r}
+# R
+print(1 + 2)
+print(10 ^ 2) # exponent
+print(3 / 2)
+print(as.integer(3 / 2)) # there is no direct integer division
+print(15 %% 4) # modulo = remainder
+```
+
+# Order of operations
+
+Most to least powerful. Use parentheses to ensure intended order of operations.
+
+```{python}
+# python
+print(100 + 1000/10**2)
+print(100 + (1000/10)**2)
+print((100 + 1000/10)**2)
+```
+```{r}
+# R
+print(100 + 1000/10^2)
+print(100 + (1000/10)^2)
+print((100 + 1000/10)^2)
+```
+
+# Logical Comparisons
+
+```{python}
+# python
+a = 2
+print(a)
+print(3 > a) # greater
+print(3 < a) # smaller
+print(a == 2) # equals
+print(a != 2) # not equals
+```
+
+```{r}
+# R
+a <- 2
+print(a)
+print(3 > a) # greater
+print(3 < a) # smaller
+print(a == 2) # equals
+print(a != 2) # not equals
+
+# NOTE: in R these comparisons also work for vectors and are applied on an entry-by-entry basis
+a <- c(1, 2, 7)
+print(a)
+print(3 > a)
+print(3 < a) 
+print(a == 2) 
+print(a != 2) 
+```
+
+# Chaining Logical Comparisons
+
+```{python}
+# python --> keywords and, or
+a = 2
+b = 3
+print((a == 2) and (b > 1))
+print((a != 2) or (b > 1))
+```
+
+```{r}
+# R - operators &&, ||
+a <- 2
+b <- 3
+print(a == 2 && b > 1)
+print(a != 2 || b > 1)
+
+# however, be careful chaining vectors with logical comparisons
+a <- c(1, 2, 7)
+print(a)
+print(a == 1) # vector of TRUE/FALSE values
+print(a == 1 && b > 1) # only 1st value of vector is used in && chain!!
+print(a == 1 & b > 1) # use & and | instead for element-wise chaining 
+
+# also possible for multi-vector chains such as in this data table
+dplyr::data_frame(
+  a = c(T, F, F, T),
+  b = c(F, T, T, T),
+  a_and_b = a & b,
+  a_or_b = a | b,
+  a_not_b = a != b
+)
+```
+
+# Bitwise operators
+
+```{python}
+# python
+BACON = 1     # 0001 in binary
+LETTUCE = 2   # 0010 in binary
+TOMATO = 4    # 0100 in binary
+SOURDOUGH = 8 # 1000 in binary
+sandwich = BACON | TOMATO | SOURDOUGH  # = 1101 in binary (all but lettuce)
+print(sandwich)
+
+# what bits does the sandwich have in common with each ingredient?
+print(sandwich & BACON) # the BACON bit is also 1 in the sandwich
+print(sandwich & LETTUCE) # the LETTUCE bit is 0 in the sandwich
+print(sandwich & TOMATO) # the TOMATO bit is 1 in the sandwich 
+print(sandwich & SOURDOUGH) # the SOURDOUGH bit is 1 in the sandwich
+```
+
+```{r}
+# R 
+# CAUTION: remember that & and | are _ELEMENT-wise_ operators for vectors, 
+# NOT bitwise operators like in python - if bitwise is needed, there are 
+# specific functions defined for it
+BACON <- 1     # 0001 in binary
+LETTUCE <- 2   # 0010 in binary
+TOMATO <- 4    # 0100 in binary
+SOURDOUGH <- 8 # 1000 in binary
+sandwich <- bitwOr(bitwOr(BACON, TOMATO), SOURDOUGH)
+print(sandwich)
+
+print(bitwAnd(sandwich, BACON))
+print(bitwAnd(sandwich, LETTUCE))
+print(bitwAnd(sandwich, TOMATO))
+print(bitwAnd(sandwich, SOURDOUGH))
+```
+
+# Functions
+
+## Return values
+
+```{python}
+# python
+def foo1():
+  pass
+print(foo1()) # if no return value is defined, return value is None
+
+def foo2():
+  return(1)
+print(foo2()) # one return value
+
+def foo3():
+  return(1, "two", 3.14)
+print(foo3()) # multiple return values
+```
+
+```{r}
+# R
+foo1 <- function() {
+}
+str(foo1()) # if no return value defined, return value is NULL
+
+# BUT: last statement of a function becomes automatically the return value!!
+# --> good coding = be explicit and always use return() statements in a function
+foo1b <- function() {
+  1
+}
+str(foo1b()) 
+
+foo2 <- function() {
+  return(1)
+}
+str(foo2()) # one return value
+
+foo3 <- function() {
+  return(list(1, "two", 3.14))
+}
+str(foo3()) # multiple return values
+```
+
+## Parameters (or Arguments)
+
+```{python}
+# python
+def foo4(x, y):
+  return(x * y**2)
+print(foo4(2, 5)) # parameters passed in order
+print(foo4(y = 2, x = 5)) # passed by explicit name
+
+# parameter defaults
+def foo5(x, y = 5):
+  return (x * y**2)
+print(foo5(2)) # use with default for y
+print(foo5(2, 10)) # overwrite default for y
+
+# variables as parameters
+a = 4
+print(foo5(x = a)) # x takes the value of a inside the function
+
+# cannot pass undefined variables
+try:
+  foo5(x = undef)
+except:
+  print("Unexpected error:", sys.exc_info()[1])
+  
+# cannot omit parameters that don't have defaults, even if they are not used
+def foo6(x, y = 5):
+  return(y**2) # x not used!
+  
+try:
+  foo6()
+except:
+  print("Unexpected error:", sys.exc_info()[1])
+```
+
+```{r}
+# R
+foo4 <- function(x, y) {
+  return(x * y^2)
+}
+print(foo4(2, 5)) # parameters passed in order
+print(foo4(y = 2, x = 5)) # passed by explicit name
+
+# parameter defaults
+foo5 <- function(x, y = 5) {
+  return (x * y^2)
+}
+print(foo5(2)) # use with default for y
+print(foo5(2, 10)) # overwrite default for y
+
+# variables as parameters
+a <- 4
+print(foo5(x = a)) # x takes the value of a inside the function
+
+# CAN omit parameters that don't have defaults IF they are not used
+foo6 <- function(x, y = 5) {
+  return(y^2) # x not used!
+}
+print(foo6())
+
+# CAN also pass variables that are not defined IF they are not used
+print(foo6(x = undef))
+
+# Explanation: R uses so-called lazy-evaluation, the parameters do NOT actually
+# get evaluated for their value UNTIL they are needed (if they are never needed,
+# it never checks whether they actually exist).
+foo6b <- function(x, y = 5) {
+  return(rlang::enquo(x)) # return the structure of the x argument
+}
+print(foo6b(x = undef)) # until its value is needed, x is just an expression defined in a specific environment
+
+# special parameter ...
+foo6c <- function(x, y = 5, ...) {
+  str(list(...))
+}
+foo6c(x = 2, y = 5) # only named parameters provided
+foo6c(x = 2, z = 10, k = 9.81) # additional parameters provided in unspecific ...
+```
+
+
+## Scoping
+
+Variables defined inside functions (**local variables**) do NOT overwrite variables of the same name defined in the global environment. Local variables disappear once the function finishes.
+
+```{python}
+# python
+a = 2
+def foo8():
+  a = 395
+  print(a) # print the value defined inside the function
+
+print(a)
+foo8()
+print(a) # kept its original value
+```
+```{r}
+# R
+a <- 2
+foo8 <- function() {
+  a <- 395
+  print(a) # print the value defined inside the function
+}
+print(a)
+foo8()
+print(a) # kept its original value
+```
+
+
+## Scoping for objects
+
+Also called passing by reference (as opposed to passing by value).
+
+```{python}
+# python
+# unlike primite data types (integers, numerics, strings, booleans), objects like 
+# tuples, dicts, etc. get passed by reference and DO change inside the function
+a_list = [3.14, 9.8]
+def foo9(somelist):
+  somelist[0] = 6.67e-11
+  somelist.append(6.022e23)
+  print(somelist) # print the value at end of function
+
+print(a_list)
+foo9(a_list)
+print(a_list) # did NOT keep its original value
+
+# Advantage: large objects don't get copied each time
+# Disadvantage: functions can alter global variables accidentally or without the
+# user realizing
+```
+
+```{r}
+# R
+# even objects get passed by value (i.e. no passing by reference / do not get altered)
+a_list <- list(3.14, 9.8)
+foo9 <- function(somelist) {
+  somelist[1] <- 6.67e-11
+  somelist <- c(somelist, list(6.022e23))
+  str(somelist)
+}
+str(a_list)
+foo9(a_list)
+str(a_list) # a list stayed the same
+
+# Advantage: functions don't accidentally change variables outside their scope
+# Disadvantage: large objects get copied (although lazy evaluation helps some)
+```
+
+
+```{r}
+# R - changing global variables after all (NOTE: this is not recommended
+# pratice in R)
+a_list <- list(3.14, 9.8)
+foo10 <- function() {
+  a_list[1] <<- 6.67e-11 # using <<- assigns global variable
+  a_list <- c(a_list, list(6.022e23)) # using <- does not
+  str(a_list)
+}
+str(a_list)
+foo10()
+str(a_list) # the command using <<- altered the global variable
+```
+
+```{r}
+# BETTER: use return value and EXPLICITLY overwrite your global variable
+a_list <- list(3.14, 9.8)
+foo11 <- function(somelist) {
+  somelist[1] <- 6.67e-11
+  somelist <- c(somelist, list(6.022e23))
+  return(somelist)
+}
+str(a_list)
+str(foo11(a_list))
+str(a_list) # a list did not change
+
+a_list <- foo11(a_list) # overwrite with new value returned by function
+str(a_list) # now a_list has the new value BUT the function did not change it, the user did with the explicit re-assignment to a_list
+```
+
+
+
+
+
