@@ -29,8 +29,10 @@ nbs: $(nb_doc_files)
 # render calls
 %_rmd.html: %_rmd.$(rmd_ext)
 	Rscript -e "rmarkdown::render('$<')"
+	touch $(file_folder)/index.Rmd
 %_nb.html: %_nb.$(nb_ext)
 	source activate $(py_venv) && jupyter nbconvert --to html --execute "$<"
+	touch $(file_folder)/index.Rmd
 
 # index file
 %index.html: %index.Rmd
