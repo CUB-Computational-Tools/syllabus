@@ -22,7 +22,8 @@ nb_doc_files := $(patsubst %.$(nb_ext),%.html,$(wildcard $(file_folder)/*.$(nb_e
 all: lectures
 
 # rendered documents
-lectures: rmds nbs $(file_folder)/index.html
+lectures: rmds nbs
+		make $(file_folder)/index.html
 rmds: $(rmd_doc_files)
 nbs: $(nb_doc_files)
 
