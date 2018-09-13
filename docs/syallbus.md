@@ -5,7 +5,11 @@ permalink: /
 
 # Welcome
 
-This is the Syllabus for the Fall 2018 Computational Tools graduate class. This is an evolving document, please check back often.
+This is the Syllabus for the Fall 2018 Computational Tools pilot class. This is an evolving document, please check back often.
+
+# About
+
+No matter the discipline, scientific research and teaching in the 21st century relies heavily on computational tools. This class aims to introduce graduate students in the geological, geophysical and biogeochemical sciences to a wide range of commonly used concepts and open source data tools to empower them to find the right tool for their computational needs in research and teaching. Interested students should have a rough idea for a programming/modeling/data science project relevant to their research goals that they want to pursue as part of this class. Prior experience with at least one programming language is recommended.  
 
 # Logistics
 
@@ -162,7 +166,7 @@ Again, complete one or both of the following lessons.
   - complete chapter 4 (**Manipulating data frames**) of the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/)
   - complete chapter 5 (**Visualizing data**) of the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/)
 
-For some background and general reference on these tools, we recommend the online [R for Data Science Book](http://r4ds.had.co.nz/) - an excellent resource for approaches to data science in R. Highly recommend bookmarking the link and using it as a reference whenever you want to learn more about the most up-to-date way of dealing with specific data manipulation and processing problems. For the tools in this homework assignment, the [R for Data Science Book](http://r4ds.had.co.nz/) chapters on [**Tiday data**](http://r4ds.had.co.nz/tidy-data.html) and [**Visualization**](http://r4ds.had.co.nz/data-visualisation.html) as well as the [introduction to aesthetics](https://serialmentor.com/dataviz/aesthetic-mapping.html#aesthetics-and-types-of-data) in [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/) will be particularly valuable.
+For some background and general reference on these tools, we recommend the online [R for Data Science Book](http://r4ds.had.co.nz/) - an excellent resource for approaches to data science in R. Highly recommend bookmarking the link and using it as a reference whenever you want to learn more about the most up-to-date way of dealing with specific data manipulation and processing problems. For the tools in this homework assignment, the [R for Data Science Book](http://r4ds.had.co.nz/) chapters on [**Tiday data**](http://r4ds.had.co.nz/tidy-data.html) and [**Visualization**](http://r4ds.had.co.nz/data-visualisation.html) as well as the [**Introduction to aesthetics**](https://serialmentor.com/dataviz/aesthetic-mapping.html#aesthetics-and-types-of-data) in [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/) will be particularly valuable.
 
 
 ## Week 4
