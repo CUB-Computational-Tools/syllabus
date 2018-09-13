@@ -66,27 +66,20 @@ This is the Syllabus for the Fall 2018 Computational Tools graduate class. This 
 - get your playground from GitHubClassroom (follow [this link](https://classroom.github.com/a/-QXQGmbx)) and clone it to your system
 - intro juypter notebooks & RMarkdown + - \\( \LaTeX \\) math
 - data types
-- control structures --> didn't get to it, resume next week
-- functions --> didn't get to it, resume next week
 
 ### Materials & Resources
 - [Jupyter Notebook documentation](https://jupyter-notebook.readthedocs.io/)
   - [list of available kernels for other languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
 - [RMarkdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
   - [list of available engines for other languages](https://bookdown.org/yihui/rmarkdown/language-engines.html)
-- [latex math cheatsheet](https://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf)
-- [Jupyter Notebook cheatsheet](http://datacamp-community.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40)
-- [Python basics cheatsheet](http://datacamp-community.s3.amazonaws.com/e30fbcd9-f595-4a9f-803d-05ca5bf84612)
-- [RStudio cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rstudio-ide.pdf)
-- [RMarkdown cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rmarkdown-2.0.pdf)
-- resources for the optional materials this week (necessary the following week):
-  - [numpy cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
-  - [pandas cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PandasPythonForDataScience.pdf)
-  - [dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf)
-  - [tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+- Quick references (cheatsheets):
+  - [latex math cheatsheet](https://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf)
+  - [Jupyter Notebook cheatsheet](http://datacamp-community.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40)
+  - [Python basics cheatsheet](http://datacamp-community.s3.amazonaws.com/e30fbcd9-f595-4a9f-803d-05ca5bf84612)
+  - [RStudio cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rstudio-ide.pdf)
+  - [RMarkdown cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rmarkdown-2.0.pdf)
 
 ### Homework
-
 Play with your [`playground-...` repository](https://classroom.github.com/a/-QXQGmbx) and the tutorials listed below. We recommend writing solutions down in Jupyter or RMarkdown notebooks for good practice. Also, git is your friend for keeping track of changes although branches are more optional if you're the only user of the repository. Quick reminder on launching Jupyter notebooks and RStudio:
 
  - Jupyter notebooks:
@@ -106,8 +99,6 @@ Play with your [`playground-...` repository](https://classroom.github.com/a/-QXQ
 
  - complete lessons **Hello World** through **Functions** in the **Learn the basics** section of [learnpython.org](https://www.learnpython.org/)
  - create your own RMarkdown or Jupyter notebooks to complete the exercises
- - optional (may be useful already next week, necessary the following week):
-   - **Numpy Arrays** and **Pandas Basics** in the **Data Science Tutorials** section of [learnpython.org](https://www.learnpython.org/)
 
 #### R
 
@@ -117,37 +108,31 @@ Complete one or both of the following lessons. Doing both is probably overkill i
   - in your RStudio console, run/complete the following
   - `install.packages("swirl")`
   - `swirl::install_course("R Programming")`
-  - `swirl::install_course("Getting and Cleaning Data")`
   - `swirl::swirl()`
   - select the **R Programming course** in the resulting menu and complete lessons **Basic Building Blocks** through **Functions**
-  - optional (may be useful already next week, necessary the following week):
-    - select the **Getting and Cleaning Data** and complete lessons **Manipulating Data with dplyr**, **Grouping and Chaining with dplyr** and **Tidying Data with tidyr**
 
 2. Data Carpentry workshop (create your own RMarkdown files to complete the challenges)
   - go to the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/) (the data is for ecology but the approach is universal)
   - complete chapters 1-3 (**Before we start** to **Starting with data**)
-  - optional (may be useful already next week, necessary the following week):
-    - chapter 4 (**Manipulating data frames**)
 
 ## Week 3
 
 ### Topics (in class)
-- control structures
+- logic & operators
 - functions
-- data structures (arrays, frames, etc.)
-- maybe: linting
-- maybe: plotting
-- maybe: data import/export
 
 ### Materials & Resources
-- [numpy cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
-- [pandas cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PandasPythonForDataScience.pdf)
-- [matplotlib cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Python_Matplotlib_Cheat_Sheet.pdf)
-- [R for Data Science Book](http://r4ds.had.co.nz/)
-- [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/)
-- [dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf)
-- [tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
-- [ggplot cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf)
+- Recommended books:
+  - [R for Data Science Book](http://r4ds.had.co.nz/) ([GitHub repository](https://github.com/hadley/r4ds) that generates this book)
+  - [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/) ([GitHub repository](https://github.com/clauswilke/dataviz) that generates this book)
+  - [IPython Interactive Computing and Visualization Cookbook](https://www.packtpub.com/big-data-and-business-intelligence/ipython-interactive-computing-and-visualization-cookbook-second-e) ([GitHub repository](https://github.com/ipython-books/cookbook-2nd-code) with the exercises)
+- Quick references (cheatsheets):
+  - [dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf)
+  - [tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+  - [ggplot cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf)
+  - [numpy cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
+  - [pandas cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PandasPythonForDataScience.pdf)
+  - [matplotlib cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Python_Matplotlib_Cheat_Sheet.pdf)
 
 ### Homework
 
@@ -177,22 +162,24 @@ Again, complete one or both of the following lessons.
   - complete chapter 4 (**Manipulating data frames**) of the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/)
   - complete chapter 5 (**Visualizing data**) of the [datacarpentry workshop](https://datacarpentry.org/R-ecology-lesson/)
 
-For some background and general reference on these tools, we recommend the online [R for Data Science Book](http://r4ds.had.co.nz/) - an excellent resource for approaches to data science in R. Highly recommend bookmarking the link and using it as a reference whenever you want to learn more about the most up-to-date way of dealing with specific data manipulation and processing problems. For the tools in this homework assignment, the chapter on [**Tiday data** chapter](http://r4ds.had.co.nz/tidy-data.html#tidy-data-1) will provide some valuable background.  For visualization, the [R for Data Science ](http://r4ds.had.co.nz/) chapter on aesthetic mappings (chapter 3.3), chapter on facets (chapter 3.5), and chapter on geometric objects (chapter 3.6) are particularly valuable, as well as the introduction to data types (chapter 1.1) in the the [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/).
+For some background and general reference on these tools, we recommend the online [R for Data Science Book](http://r4ds.had.co.nz/) - an excellent resource for approaches to data science in R. Highly recommend bookmarking the link and using it as a reference whenever you want to learn more about the most up-to-date way of dealing with specific data manipulation and processing problems. For the tools in this homework assignment, the [R for Data Science Book](http://r4ds.had.co.nz/) chapters on [**Tiday data**](http://r4ds.had.co.nz/tidy-data.html) and [**Visualization**](http://r4ds.had.co.nz/data-visualisation.html) as well as the [introduction to aesthetics](https://serialmentor.com/dataviz/aesthetic-mapping.html#aesthetics-and-types-of-data) in [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/) will be particularly valuable.
 
 
 ## Week 4
 
 ### Topics (in class)
-- data structures continued
-- data wrangling
-- tbc
+- individual projects
+- data structures (arrays, frames, etc.)
+- control structures (if, else, for, while)
+- plotting
+- maybe: linting
+- maybe: data import/export
 
 ### Homework
 - continue individual projects
 - tbc
 
 ### Materials & Resources
-- pandas
 - xarray
 - tbc
 
