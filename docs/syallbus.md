@@ -17,7 +17,7 @@ No matter the discipline, scientific research and teaching in the 21st century r
 - **Website**: [https://2018-computational-tools.github.io](https://2018-computational-tools.github.io)
 - **Course #**: GEOL-5700-020
 - **Time**: Tuesdays 4-6pm
-- **Place**: Benson 340E (larger alternative TBD)
+- **Place**: Benson 1B81
 - **Credits**: 2
 
 # Schedule
@@ -68,7 +68,7 @@ No matter the discipline, scientific research and teaching in the 21st century r
 
 ### Topics (in class)
 - get your playground from GitHubClassroom (follow [this link](https://classroom.github.com/a/-QXQGmbx)) and clone it to your system
-- intro juypter notebooks & RMarkdown + - \\( \LaTeX \\) math
+- intro juypter notebooks & RMarkdown + \\( \LaTeX \\) math
 - data types
 
 ### Materials & Resources
