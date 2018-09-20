@@ -172,36 +172,30 @@ For some background and general reference on these tools, we recommend the onlin
 ## Week 4
 
 ### Topics (in class)
-- individual projects
-- data structures (arrays, frames, etc.)
-- control structures (if, else, for, while)
+- overview of individual projects
+- function documentation
+- analysis script examples
+- data structures (matrices, frames, etc.)
 - plotting
-- maybe: linting
-- maybe: data import/export
 
 ### Homework
-- continue individual projects
-- tbc
-
-### Materials & Resources
-- xarray
-- tbc
+- set up a repository for your project - to start a private project repository in the Classroom organization, use [this link](https://classroom.github.com/a/N3tbbNah)
+- create a branch for the week (`dev` or `in-progress` or `week-1`, whatever you prefer) and work on the project
+- before next class, make a pull request to merge your week branch into `master` and request a review from your team partner
+- review the pull request from your team partner adding comments for anything you are confused about or unclear why/what they are doing in their code
 
 ## Week 5
 
 ### Topics (in class)
-- project progress
-- loose ends on data structures, plotting, etc.
-- group discussion & plan on problem sets implementation
-- tbc
+- project progress updates
+- loose ends on data structures
+- control structures
+- numerical methods
 
 ### Homework
-- start group problem sets
-- continue individual projects
-- tbc
-
-### Materials & Resources
-- tbc
+- once again, create a branch for the week and work on your individual project
+- before next class, make a pull request to merge your week branch into `master` and request a review from your team partner
+- review the pull request from your team partner adding comments for anything you are confused about or unclear why/what they are doing in their code
 
 ## Week 6
 
@@ -213,6 +207,18 @@ For some background and general reference on these tools, we recommend the onlin
 ### Homework
 - continue group problem sets
 - continue individual projects
+- tbc
+
+### Materials & Resources
+- xarray
+- - group discussion & plan on problem sets implementation
+- maybe: linting
+- maybe: data import/export
+- tbc
+- tbc
+- error handling
+- unit testing
+- test-driven development
 - tbc
 
 ### Materials & Resources
