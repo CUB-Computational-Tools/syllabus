@@ -200,65 +200,25 @@ For some background and general reference on these tools, we recommend the onlin
 ## Week 6
 
 ### Topics (in class)
-- code optimization strategies
-- code packaging & documentation
-- tbc
-
-### Homework
-- continue group problem sets
-- continue individual projects
-- tbc
-
-### Materials & Resources
-- xarray
-- - group discussion & plan on problem sets implementation
-- maybe: linting
-- maybe: data import/export
-- tbc
-- tbc
+- problem set design:
+  - faculty present on their spring undergraduate classes
+  - group discussion, team selection & plan on problem sets implementation
 - error handling
 - unit testing
 - test-driven development
-- tbc
-
-### Materials & Resources
-- R package development
-- tbc
-
-## Week 7
-
-### Topics (in class)
-- error handling
-- unit testing
-- test-driven development
-- tbc
+- package/library development
 
 ### Homework
-- continue group problem sets
-- continue individual projects
-- tbc
-
-### Materials & Resources
-- testthat
-- tbc
-
-## Week 8 + 9
-
-### Topics (in class)
-- numerical tools
-- Landlab
-- tbc
-
-### Homework
-- continue group problem sets
+- start on group problem sets
 - continue individual projects
 - create a particle.io account
 - install particle dev
 
 ### Materials & Resources
-- tbc
+- Quick references (cheat sheet)
+  - [R Development Tools](https://raw.githubusercontent.com/rstudio/cheatsheets/master/package-development.pdf)
 
-## Week 10 + 11
+## Week 7 + 8
 
 ### Topics (in class)
 - microcontrollers
@@ -268,6 +228,38 @@ For some background and general reference on these tools, we recommend the onlin
 - continue group problem sets
 - continue individual projects
 - tbc
+
+### Materials & Resources
+- tbc
+
+## Week 9 + 10
+
+### Topics (in class)
+- loose ends
+- advanced numerical tools
+- Landlab
+- maybe: linting
+- maybe: data import/export
+- tbc
+
+### Homework
+- continue group problem sets
+- continue individual projects
+
+### Materials & Resources
+- tbc
+
+## Week 11
+
+### Topics (in class)
+- loose ends
+- code optimization/problems Q&A
+- tips & tricks
+- advanced package/library development
+
+### Homework
+- continue group problem sets
+- continue individual projects
 
 ### Materials & Resources
 - tbc
