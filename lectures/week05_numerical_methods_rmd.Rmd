@@ -1,0 +1,408 @@
+---
+title: "Numerical computation"
+output:
+  html_document:
+    code_folding: show
+    df_print: paged
+    number_sections: no
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+editor_options:
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+library(tidyverse) # key packages are dplyr and tidyr
+library(reticulate)
+# load python
+use_condaenv("class", conda = "auto", required = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Basics
+
+## Python
+
+The `numpy` library provides the basis for numerical multidimensional arrays. [`xarray`](http://xarray.pydata.org/en/stable/) provides additional features that allows for numpy arrays with pandas-like named dimensions and therefore very efficient representation of netCDF data and similar geospatial information.
+
+## R
+
+All basic data in R is always already a vector (i.e. a 1-dimensional array). Two dimensional number arrays in R are called `matrix` but the `array` data type provides more general multi-dimensional data options similar to `numpy` in python. However, the more common approach in R is to use `data_frame` tabular data that can be nested (tidyr's `nest`) and unnested (tidyr's `unnest`) to provide higher dimmensional data that's still compatible with `dplyr` and `ggplot` operations. 
+
+# Create arrays
+
+## Python
+
+```{python}
+# python
+import numpy as np # import numpy
+
+# basic numpy array (by default initialized as float)
+a = np.array([3.14, 60, 17])
+print(a)
+print(type(a[0]))
+
+# specify integer arrays if desired
+b = np.array([1, 2, 3], dtype=int)
+print(b)
+print(type(b[0]))
+```
+
+```{r, message=FALSE}
+# basic vector
+a <- c(3.14, 60, 17) 
+str(a)
+# integer vector
+b <- c(1L, 2L, 3L) 
+str(b)
+# special case for easy creation of sequential integer vectors
+b2 <- 1:5
+str(b2)
+```
+
+
+```{python}
+# python
+# generate a basic array of zeros
+z = np.zeros((2, 5, 10)) # 2 x 5 x 10 array
+print(z)
+
+# generate an array of ones with same dimension
+z2 = np.ones_like(z)
+print(z2)
+
+# range of 100 values from 0.1 to 10 reshaped into a 10x10 array
+z3 = np.linspace(0.1,10,100).reshape(2, 5, 10)
+print(z3)
+```
+
+## R
+
+```{r}
+# R
+# notice that although the dimensions are the same size, the way the arrays are populated is quite different!
+str(py$z3) # array coming from python
+z3 <- array(seq(0.1, 100, by = 0.1), dim = c(2, 5, 10))
+str(z3) # "same" array created in R
+
+# default array values - either e.g. a sequence as illustrated above or single default
+str(array(NA_real_, dim = c(2, 5, 10))) # not available as default
+str(z <- array(0L, dim = c(2, 5, 10))) # 0 integer as default
+str(z2 <- array(1, dim = c(2, 5, 10))) # 1.0 numeric (=float) as default
+
+# note that arrays in R can also have named dimensions
+zdim <- array(1:100, dim = c(2, 5, 10), dimnames = list(x = str_c("x", 1:2), y = str_c("y", 1:5), z = str_c("z", 1:10)))
+str(zdim)
+print(zdim)
+```
+
+# Structure information
+
+## Python
+
+```{python}
+# python
+# get shape and size information
+print(np.shape(a)) # dimensions
+print(np.size(a)) # total # elements
+print(np.shape(z)) # dimensions
+print(np.size(z)) # total # elements
+# reshaping into different dimensions
+print(z3.reshape(20,5))
+```
+
+## R
+
+```{r}
+# R
+# get shape and size information
+print(dim(a)) # dimension is NOT defined for a vector
+print(length(a)) # total # elements
+print(dim(z)) # dimensions of array
+print(length(z)) # total # elements
+# reshaping into different dimensions
+z3_copy <- z3
+str(z3_copy)
+dim(z3_copy) <- c(20, 5)
+str(z3_copy)
+```
+
+
+# Selectors
+
+## Python
+
+```{python}
+# python
+# select subsets of the array by 0-based index
+print(a)
+print(a[0]) # index from beginning
+print(a[0:2]) # range (EXCLUSIVE end index)
+print(a[-2]) # index from end
+print(a[-2:]) # range till end
+# same for multidimensional arrays, each dimension as separate index
+print(z3[0:2,3:,1:4])
+```
+
+## R
+
+```{r}
+# R
+# quite different from python! indexing is 1-based and the end index is INCLUSIVE, also the -x syntax means exclude, not count from the end
+print(a)
+print(a[1]) # index from beginning (1-base)
+print(a[1:2]) # range (INCLUSIVE end index)
+print(tail(a, 2)) # get as indexed from back
+print(a[-2]) # EXCLUDE this index
+print(a[-c(2:3)]) # EXCLUDE range
+# same for multidimensional arrays, each dimension as separate index but 1-based
+str(z3[1:2,3:4,2:4])
+```
+
+# Filtering
+
+## Python
+
+```{python}
+# python
+# use where for filtering
+[i] = np.where(a < 20) # get indices (0-based as always)
+print(i)
+print(a[i])
+print(a[np.where(a < 20)]) # directly
+# same for multidimensional arrays except multiple indices are returned
+[i,j,k] = np.where(z3 > 9.5) # store indices
+print(z3[i,j,k])
+print(z3[np.where(z3 > 9.5)]) # directly
+```
+
+## R
+
+```{r}
+# R
+i <- which(a < 20) # get indices (1-based as always)
+print(i)
+print(a[i])
+print(a[a < 20]) # directly
+# same for multidimensional arrays
+is <- which(z3 > 9.5) # different to python! single index vector returned (array is still just a vector underneath)
+print(z3[is]) # consequently selected values no longer have their dimensionality!
+print(z3[z3 > 9.5]) # directly
+```
+
+## R alternative: switch to data frames
+
+```{r}
+# R: alternative
+# this is where conversion to data frame becomes more and more useful
+array_to_df <- function(array) { 
+  array %>% 
+    # convert array to table (+ to dplyr data frame)
+    as.data.frame.table() %>% tbl_df() %>%
+    # switch to index instead of named dimensions
+    mutate_if(is.factor, as.integer) %>% 
+    return()
+}
+  
+# convert array to data frame (note: column renaming is optional)
+z3_df <- z3 %>% array_to_df() %>% rename(x = Var1, y = Var2, z = Var3, value = Freq)
+z2_df <- z2 %>% array_to_df() %>% rename(x = Var1, y = Var2, z = Var3, value = Freq)
+
+# what does this look like?
+z3_df
+
+# now both selection and filtration all become the same process & very intuitive
+z3_df %>% filter(x %in% 1:2, y %in% 3:4, z %in% 2:4) # by 'index'
+z3_df %>% filter(value > 9.5) # by value, all index info also preserved
+
+# nesting / unnesting: easy way to step up/down the dimensionality
+z3_df %>% nest(-x) # nest everything but the x dimension
+z3_df %>% nest(-x, -y) # nest everything but x and y
+z3_df %>% nest(-x) %>% unnest(data) # back where we started
+```
+
+
+# Calculations
+
+## Python
+
+```{python}
+# python
+# are performed element-wise!
+z_plus = z2 + z3
+print(z_plus)
+z_times = z2 * z3
+print(z_times)
+```
+
+```{python}
+# better to be explicit using the .multiply / .dot functions
+print(np.multiply(z2, z3)) # element-wise multiplication
+
+# dot product does not work with these dimensions
+try:
+  print(np.dot(z3, z3)) 
+except:
+  print("Error:", sys.exc_info()[1])
+  
+# try again with compatible dimensions
+print(np.dot(z3.reshape(10, 10), z3.reshape(10, 10))) 
+```
+
+## R
+
+```{r}
+# R
+# are also performed element-wise by default
+z_plus = z2 + z3
+str(z_plus)
+z_times = z2 * z3
+str(z_times)
+
+# in data frame format
+z2_df %>% 
+  # combine with z3 data frame that has the same dimensions
+  full_join(z3_df, by = c("x", "y", "z"), suffix = c(".z2", ".z3")) %>% 
+  # make any element by element calculations
+  mutate(
+    z_plus = value.z2 + value.z3,
+    z_times = value.z2 * value.z3
+  )
+
+# matrix multiplication is a bit trickier, a few examples
+(v <- 1:4)
+v %*% v
+(w <- diag(v))
+w %*% v
+(m <- array(1:12, dim = c(4,3)))
+v %*% m
+tryCatch(m %*% m, error = function(e) message("Error: ", e$message))
+```
+
+# Logical Operations
+
+## Python
+
+```{python}
+# python - element wise logic
+print(a < 20)
+# logic on multiple values
+print(np.logical_or(a < 4.0, a > 20.0))
+# find out what the values are of the elements that match this condition
+print(a[np.logical_or(a < 4.0, a > 20.0)])
+# logic for multidimensional arrays
+print(z3[np.logical_or(z3 < 0.5, z3 > 9)])
+```
+
+## R
+
+```{r}
+# R - also element wise logic
+print(a < 20)
+print(a < 4.0 | a > 20.0) # since everything is a vector, this works directly with vector logic (&, |)
+print(a[a < 4.0 | a > 20.0])
+# logic for multidimensional arrays
+print(z3[z3 < 0.5 | z3 > 9])
+
+# or the data frame version
+z3_df %>% filter(value < 0.5 | value > 9)
+```
+
+
+# Numerical calculation
+
+## Example 1: radioactive decay with production term
+
+$$
+\frac{dC}{dt} = -kC + P
+$$
+
+Analytical solution
+
+$$
+C(t) = \frac{P}{k}\left(1-e^{-kt}\right)
+$$
+
+Numerical solution using finite difference.
+
+$$
+\frac{dC}{dt} \approx \frac{C^{t+1} - C^t}{\Delta t} = -kC^t + P \\
+C^{t+1} = C^t - k \Delta t C^t + P \Delta t
+$$
+
+## Python
+
+```{python}
+# python - define parameters
+C = 0.0
+dt = 100.0
+run_duration = 2.0e6
+num_time_steps = int(run_duration / dt)
+hl = 730000
+k = np.log(2.0)/hl
+P = 20.0
+C = np.zeros(num_time_steps)
+```
+
+
+```{python}
+# python - run model
+for i in range(1,num_time_steps):
+  C[i] = C[i-1] + dt * (-k * C[i-1] + P)
+```
+
+```{python}
+# python - plot model result
+import matplotlib.pyplot as plt
+t = np.arange(0.0, run_duration / 1000.0, dt / 1000.0)
+plt.plot(t, C)
+plt.xlabel("Time [ky]")
+plt.ylabel("C")
+plt.show()
+```
+
+## R
+
+```{r}
+# R - define parameters 
+# could do this in global variables but more common would use a data frame
+params <- data_frame(
+  C0 = 0.0,
+  dt = 100.0,
+  run_duration = 2.0e6,
+  num_time_steps = as.integer(run_duration / dt),
+  hl = 730000,
+  k = log(2.0)/hl,
+  P = 20.0
+)
+params
+```
+
+```{r}
+# R - initialize data outline
+data <- data_frame(
+  # time axis (in 1000 years)
+  time.ka = seq(0, by = params$dt/1000, length.out = params$num_time_steps),
+  # data with lots of NAs
+  C = c(params$C0, rep(NA, params$num_time_steps - 1))
+)
+data
+
+# run the numerical model
+for (i in 2:params$num_time_steps) {
+  data$C[i] <- data$C[i-1] + params$dt * (-params$k * data$C[i-1] + params$P)
+}
+```
+
+```{r}
+# R - plot
+data %>% 
+  ggplot() + 
+  aes(x = time.ka, y = C) + 
+  geom_line() +
+  theme_bw() +
+  labs(x = "Time (ky)", y = "C") 
+```
+
+
