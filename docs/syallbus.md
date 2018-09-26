@@ -54,6 +54,7 @@ No matter the discipline, scientific research and teaching in the 21st century r
  - create a virtual environment for python 3.6 that we will use for the class (that way you can easily keep/run other python versions/configurations) by running `conda create -n class python=3.6 anaconda`
  - run `source activate class` (mac & linux) / `activate class` (windows) to test-activate the new virtual environment
  - check that running `python --version` gives **Python 3.6.5 :: Anaconda, Inc.**
+ - run `conda install -c conda-forge jupyterlab` to install jupyter lab
  - run `source deactivate` (mac & linux) / `deactivate` (windows) to leave the virtual environment again
  - all done!
 
@@ -84,12 +85,12 @@ No matter the discipline, scientific research and teaching in the 21st century r
   - [RMarkdown cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rmarkdown-2.0.pdf)
 
 ### Homework
-Play with your [`playground-...` repository](https://classroom.github.com/a/-QXQGmbx) and the tutorials listed below. We recommend writing solutions down in Jupyter or RMarkdown notebooks for good practice. Also, git is your friend for keeping track of changes although branches are more optional if you're the only user of the repository. Quick reminder on launching Jupyter notebooks and RStudio:
+Play with your [`playground-...` repository](https://classroom.github.com/a/-QXQGmbx) and the tutorials listed below. We recommend writing solutions down in Jupyter or RMarkdown notebooks for good practice. Also, git is your friend for keeping track of changes although branches are more optional if you're the only user of the repository. Quick reminder on launching Jupyter and RStudio:
 
- - Jupyter notebooks:
-   - either open a terminal in your repository folder and start jupyter notebooks from there, OR start it in any parent folder and navigate to your files manually
+ - Jupyter:
+   - either open a terminal in your repository folder and start jupyter  from there, OR start it in any parent folder and navigate to your files manually
    - run `source activate class` (mac & linux) / `activate class` (windows) to activate the python environment (otherwise it will use your default environment)
-   - run `jupyter notebook` to start the notebook server, navigate to your `.ipynb` files from there (or create new ones)
+   - run `jupyter lab` to start the jupyter server (or `jupyter notebook` if you prefer the single document version), navigate to your `.ipynb` files from there (or create new ones)
    - hit `Ctrl`+`C`+`C` to stop the notebook server when done
    - run `source deactivate` (mac & linux) / `deactivate` (windows) to leave the virtual environment again
 - RStudio:
@@ -189,7 +190,6 @@ For some background and general reference on these tools, we recommend the onlin
 ### Topics (in class)
 - project progress updates
 - loose ends on data structures
-- control structures
 - numerical methods
 
 ### Homework
@@ -235,7 +235,8 @@ For some background and general reference on these tools, we recommend the onlin
 ## Week 9 + 10
 
 ### Topics (in class)
-- loose ends
+- loose ends (control structures? if, else, ifelse, case_when, etc.)
+- parallelization and benchmarking
 - advanced numerical tools
 - Landlab
 - maybe: linting
