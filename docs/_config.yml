@@ -1,4 +1,4 @@
 exclude:
   - README
-  - *.Rmd
-  - *.ipynb
+  - "*.Rmd"
+  - "*.ipynb"
