@@ -196,6 +196,9 @@ For some background and general reference on these tools, we recommend the onlin
 - once again, create a branch for the week and work on your individual project
 - before next class, make a pull request to merge your week branch into `master` and request a review from your team partner
 - review the pull request from your team partner adding comments for anything you are confused about or unclear why/what they are doing in their code
+- in preparation for next class, start the following projects:
+  - [R Package Development](https://classroom.github.com/a/7yVTG-L0)
+  - Python Library Development
 
 ## Week 6
 
@@ -215,6 +218,8 @@ For some background and general reference on these tools, we recommend the onlin
 - install particle dev
 
 ### Materials & Resources
+- Books:
+  - [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/), especially [Chapter on Building R Packages](https://bookdown.org/rdpeng/RProgDA/building-r-packages.html)
 - Quick references (cheat sheet)
   - [R Development Tools](https://raw.githubusercontent.com/rstudio/cheatsheets/master/package-development.pdf)
 
