@@ -12,6 +12,8 @@ editor_options:
   chunk_output_type: inline
 ---
 
+<!-- {% raw %} -->
+
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(plotly)
@@ -37,7 +39,7 @@ def pythagorize(x, y):
      Distance in y direction
   """
   return(x*x + y*y) ** 0.5
-  
+
 print(pythagorize(3, 4))
 ```
 
@@ -63,9 +65,9 @@ Import the slope analysis data.
 
 ```{r}
 # R
-data_slope_analysis <- 
+data_slope_analysis <-
   # file path to slope analysis csv data
-  file.path("data", "slope_analysis20180826.csv") %>% 
+  file.path("data", "slope_analysis20180826.csv") %>%
   # read csv data
   read_csv(
     # define column types as safety check
@@ -76,13 +78,13 @@ data_slope_analysis <-
       `Slope angle` = col_double(),
       `Slope gradient` = col_double()
     )
-  ) %>% 
+  ) %>%
   # select and rename relevant columns
   select(
     angle = `Slope angle`,
     wprime = `Weathering rate parameter`,
     dprime = `Disturbance rate parameter`
-  ) %>% 
+  ) %>%
   # scale the dimensionless numbers
   mutate(
     wprime = 1e3 * wprime,
@@ -99,9 +101,9 @@ Import the dissolution only data.
 
 ```{r}
 # read dissolution analysis csv data
-data_dissolution_only <- 
+data_dissolution_only <-
   # file path
-  file.path("data", "dissolution_only_results20180717.csv") %>% 
+  file.path("data", "dissolution_only_results20180717.csv") %>%
   # read csv
   read_csv(
     # skip the first row which has landlab info
@@ -112,12 +114,12 @@ data_dissolution_only <-
        `Gradient (m/m)` = col_double(),
        `Slope angle (deg)` = col_double()
     )
-  ) %>% 
+  ) %>%
   # select and rename relevant columns
   select(
     angle = `Slope angle (deg)`,
     dparam = `Dissolution rate parameter (1/yr)`
-  ) %>% 
+  ) %>%
   # scale identically to the model output
   mutate(
     wprime = 1e3 * dparam
@@ -134,14 +136,14 @@ data_dissolution_only
 Calculate the analytical solution for the dissolution-only case.
 
 ```{r}
-analytical_dissolution_only <- 
+analytical_dissolution_only <-
   data_frame(
     wprime = seq(
-      from = min(data_dissolution_only$wprime), 
-      to = max(data_dissolution_only$wprime), 
+      from = min(data_dissolution_only$wprime),
+      to = max(data_dissolution_only$wprime),
       length.out = 100),
     angle = 60 - 360 * wprime / pi
-  ) 
+  )
 analytical_dissolution_only
 ```
 
@@ -150,7 +152,7 @@ analytical_dissolution_only
 Combine all the data into a uniform format for easy calculations and visualization. Introduce new information columns `scenario` and `analytical` to make it easy to use grouping and aesthetics later on.
 
 ```{r}
-all_data <- 
+all_data <-
   # combine data frames
   bind_rows(
     # each dprime is one scenario
@@ -159,11 +161,11 @@ all_data <-
     data_dissolution_only %>% mutate(scenario = "inf", analytical = FALSE),
     # analytical solution
     analytical_dissolution_only %>% mutate(scenario = "analytical", analytical = TRUE)
-  ) %>% 
+  ) %>%
   # focus on columns of interest
-  select(analytical, scenario, angle, wprime) %>% 
+  select(analytical, scenario, angle, wprime) %>%
   # sort
-  arrange(analytical, scenario) 
+  arrange(analytical, scenario)
 
 # print out
 all_data
@@ -175,18 +177,18 @@ Spit out summary information about the data.
 
 ```{r}
 # summarize how many data points there are scenario and what the min and max angles are
-all_data %>% 
-  group_by(scenario) %>% 
+all_data %>%
+  group_by(scenario) %>%
   summarize(
     n_data_points = n(),
     angle_min = min(angle),
     angle_max = max(angle)
-  ) 
+  )
 
 # summarize at what value of the dimensionless weathering rate the facet angle first falls below 30 degrees (the effective angle of repose)
-all_data %>% 
-  filter(angle < 30) %>% 
-  group_by(scenario) %>% 
+all_data %>%
+  filter(angle < 30) %>%
+  group_by(scenario) %>%
   summarize(lowest_w_below_30deg = min(wprime))
 ```
 
@@ -196,19 +198,19 @@ Plot the facet angle for each value of $d'$ as a function of weathering paramete
 
 ```{r}
 # plot the combined data
-all_data %>% 
+all_data %>%
   # focus on data in the relevant range
-  filter(between(wprime, 0.1, 100)) %>% 
+  filter(between(wprime, 0.1, 100)) %>%
   # start plot object
   ggplot() +
   # define top level aesthetics
-  aes(x = wprime, y = angle) + 
+  aes(x = wprime, y = angle) +
   # add data points (i.e. everything that is not the analytical solution)
   geom_point(
     data = function(df) filter(df, !analytical), # data filter
     mapping = aes(shape = scenario), # aesthetics
     size = 3 # symbol size
-  ) + 
+  ) +
   # add analytical solution
   geom_line(
     data = function(df) filter(df, analytical), # data filter
@@ -221,7 +223,7 @@ all_data %>%
     mapping = aes(yintercept = y, color = scenario), size = 1, linetype = 2
   ) +
   # switch x-axis to log scale
-  scale_x_log10(expand = c(0, 0)) 
+  scale_x_log10(expand = c(0, 0))
 ```
 
 ```{r}
@@ -245,7 +247,7 @@ ggplot2::last_plot() +
         x != "inf" ~ sprintf("$d' = 10^{%.0f}$", log10(as.numeric(x)))
       ) %>% TeX()
     }
-  ) + 
+  ) +
   # color scale & latex legend for lines
   scale_color_manual(
     # selecting manual colors
@@ -260,8 +262,8 @@ ggplot2::last_plot() +
   ) +
   # x axis scale
   scale_x_log10(
-    labels = function(x) sprintf("$10^{%.0f}$", log10(x)) %>% TeX(), 
-    expand = c(0, 0)) + 
+    labels = function(x) sprintf("$10^{%.0f}$", log10(x)) %>% TeX(),
+    expand = c(0, 0)) +
   # y axis scale
   scale_y_continuous(labels = function(x) str_c(x, "°")) +
   # add labels
@@ -297,7 +299,7 @@ This next figure isn't meant for the paper, but is just here to check out what i
 ggplot2::last_plot() %+% aes(y = 60 - angle) + labs(y = "60° - facet angle")
 ```
 
-# Interactive Plot 
+# Interactive Plot
 
 For more complex interactive plots, it's useful to call plot_ly directly.
 
@@ -315,10 +317,10 @@ plot_ly(
   ) %>%
   # add lines
   add_lines(
-    data = filter(all_data, between(wprime, 0.1, 100), analytical), 
+    data = filter(all_data, between(wprime, 0.1, 100), analytical),
     color = ~ scenario,
     line = list(color = "black")
-  ) %>% 
+  ) %>%
   # add layout specifications
   layout(
     xaxis = list(title = "Dimensionless weathering rate parameter", type = "log"),
@@ -337,13 +339,13 @@ frames <-
   )
 
 # animated data
-animated_data <- all_data %>% 
+animated_data <- all_data %>%
   # focus on data between 0.1 and 100 wprime
-  filter(between(wprime, 0.08, 100)) %>% 
+  filter(between(wprime, 0.08, 100)) %>%
   # cross with the frames data frame
-  crossing(frames) %>% 
+  crossing(frames) %>%
   # ensure each frame only goes to the cutoff
-  filter(wprime <= wprime_cutoff) 
+  filter(wprime <= wprime_cutoff)
 ```
 
 ```{r}
@@ -362,21 +364,22 @@ animated_data <- all_data %>%
   ) %>%
   # add lines
   add_lines(
-    data = filter(animated_data, analytical), 
+    data = filter(animated_data, analytical),
     color = ~ scenario,
     line = list(color = "black")
-  ) %>% 
+  ) %>%
   # add layout specifications
   layout(
     title = "<b>Wonderfuly Unnecessarily Animated Plot</b>",
     xaxis = list(title = "Dimensionless weathering rate parameter", type = "log"),
     yaxis = list(title = "facet angle")
-  ) %>% 
+  ) %>%
   # animation options
   animation_opts(
-    frame = 100, 
-    transition = 0, 
+    frame = 100,
+    transition = 0,
     redraw = FALSE
-  ) 
+  )
 ```
 
+<!-- {% endraw %} -->
