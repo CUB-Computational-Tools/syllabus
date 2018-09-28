@@ -219,7 +219,8 @@ For some background and general reference on these tools, we recommend the onlin
 
 ### Materials & Resources
 - Books:
-  - [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/), especially [Chapter on Building R Packages](https://bookdown.org/rdpeng/RProgDA/building-r-packages.html)
+  - [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/), especially the [chapter on Building R Packages](https://bookdown.org/rdpeng/RProgDA/building-r-packages.html)
+  - [R packages](http://r-pkgs.had.co.nz/)
 - Quick references (cheat sheet)
   - [R Development Tools](https://raw.githubusercontent.com/rstudio/cheatsheets/master/package-development.pdf)
 
