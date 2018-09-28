@@ -181,6 +181,7 @@ For some background and general reference on these tools, we recommend the onlin
 
 ### Homework
 - set up a repository for your project - to start a private project repository in the Classroom organization, use [this link](https://classroom.github.com/a/N3tbbNah)
+- if you want to use the project template we used earlier, you can download [this repository](https://github.com/2018-Computational-Tools/assignment_template) and copy whichever parts you like into your new project
 - create a branch for the week (`dev` or `in-progress` or `week-1`, whatever you prefer) and work on the project
 - before next class, make a pull request to merge your week branch into `master` and request a review from your team partner (you will have to add them by their github user name as a `Collaborator` in the repository `Settings` --> `Collaborators & Teams` section, with at least `Read` access)
 - review the pull request from your team partner adding comments for anything you are confused about or unclear why/what they are doing in their code
