@@ -197,9 +197,6 @@ For some background and general reference on these tools, we recommend the onlin
 - once again, create a branch for the week and work on your individual project
 - before next class, make a pull request to merge your week branch into `master` and request a review from your team partner
 - review the pull request from your team partner adding comments for anything you are confused about or unclear why/what they are doing in their code
-- in preparation for next class, start the following projects:
-  - [R Package Development](https://classroom.github.com/a/7yVTG-L0)
-  - Python Library Development
 
 ## Week 6
 
@@ -207,16 +204,23 @@ For some background and general reference on these tools, we recommend the onlin
 - problem set design:
   - faculty present on their spring undergraduate classes
   - group discussion, team selection & plan on problem sets implementation
+- wrap up numerical integration
+
+### Homework
+- continue individual projects (the usual weekly branch and review)
+- decide which group project group you want to be in and think about ideas for problem set development
+- in preparation for next class, accept the following assignment so we're not waylaid by everyone doing this at the same time in class (no need to work on it yet!):
+  - [R Package Development](https://classroom.github.com/a/7yVTG-L0)
+  - Python Library Development
+
+## Week 7
+
+## Topics (in class)
+
 - error handling
 - unit testing
 - test-driven development
 - package/library development
-
-### Homework
-- start on group problem sets
-- continue individual projects
-- create a particle.io account
-- install particle dev
 
 ### Materials & Resources
 - Books:
@@ -225,7 +229,13 @@ For some background and general reference on these tools, we recommend the onlin
 - Quick references (cheat sheet)
   - [R Development Tools](https://raw.githubusercontent.com/rstudio/cheatsheets/master/package-development.pdf)
 
-## Week 7 + 8
+### Homework
+- start on group problem sets
+- continue individual projects
+- create a particle.io account
+- install particle dev
+
+## Week 8
 
 ### Topics (in class)
 - microcontrollers
