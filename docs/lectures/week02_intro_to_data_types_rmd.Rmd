@@ -1,5 +1,6 @@
 ---
 title: "Introduction to data types"
+author: "Sebastian Kopf & Greg Tucker"
 output:
   html_document:
     toc: yes

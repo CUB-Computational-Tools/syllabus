@@ -1,5 +1,6 @@
 ---
 title: "Numerical computation"
+author: "Sebastian Kopf & Greg Tucker"
 output:
   html_document:
     code_folding: show

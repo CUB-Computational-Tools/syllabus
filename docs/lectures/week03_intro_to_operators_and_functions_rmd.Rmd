@@ -1,5 +1,6 @@
 ---
 title: "Operators, Functions and More"
+author: "Sebastian Kopf & Greg Tucker"
 output:
   html_document:
     toc: yes

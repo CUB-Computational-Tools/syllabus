@@ -1,5 +1,6 @@
 ---
 title: "Introduction to function documentation, data import, data structures and plotting"
+author: "Sebastian Kopf & Greg Tucker"
 output:
   html_document:
     code_folding: show
