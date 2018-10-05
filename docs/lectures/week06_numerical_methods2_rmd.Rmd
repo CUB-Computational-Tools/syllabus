@@ -14,6 +14,8 @@ editor_options:
   chunk_output_type: inline
 ---
 
+<!-- {% raw %} -->
+
 ```{r setup, include=FALSE}
 library(reticulate)
 # load python
@@ -294,7 +296,7 @@ p %+% filter(plot_df, time_i %in% range(time_i)) +
   facet_wrap(~time.d)
 ```
 
-### Animated plot
+### Interactive plot
 
 ```{r, fig.width = 6, fig.height = 6}
 # animate
@@ -312,3 +314,5 @@ p %+% filter(plot_df, first_frame) %>%
       font = list(color="red"))
   )
 ```
+
+<!-- {% endraw %} -->
