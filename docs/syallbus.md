@@ -209,25 +209,31 @@ For some background and general reference on these tools, we recommend the onlin
 ### Homework
 - continue individual projects (the usual weekly branch and review)
 - decide which group project group you want to be in and think about ideas for problem set development
-- in preparation for next class, accept the following assignment so we're not waylaid by everyone doing this at the same time in class (no need to work on it yet!):
+- in preparation for next class, accept the following assignments so we're not waylaid by everyone doing this at the same time in class (no need to work on it yet!):
   - [R Package Development](https://classroom.github.com/a/7yVTG-L0)
-  - Python Library Development
+  - [Python Package Development](https://classroom.github.com/a/WrS9ncIn)
 
 ## Week 7
 
 ## Topics (in class)
 
-- error handling
 - unit testing
 - test-driven development
-- package/library development
+- package development
+- error handling
+- parallel processing?
 
 ### Materials & Resources
-- Books:
+- Books/Articles:
   - [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/), especially the [chapter on Building R Packages](https://bookdown.org/rdpeng/RProgDA/building-r-packages.html)
   - [R packages](http://r-pkgs.had.co.nz/)
+  - [Post on Testing & Packaging in Python](https://hynek.me/articles/testing-packaging/)
 - Quick references (cheat sheet)
   - [R Development Tools](https://raw.githubusercontent.com/rstudio/cheatsheets/master/package-development.pdf)
+- Parallel Processing
+  - [Mapping with Purrr](https://raw.githubusercontent.com/rstudio/cheatsheets/master/purrr.pdf)
+  - [Presentation on xarray and dask](https://www.ecmwf.int/sites/default/files/elibrary/2017/17837-xarray-n-d-labeled-arrays-and-datasets-python.pdf)
+  - [Dask cheat sheet](http://docs.dask.org/en/latest/_downloads/daskcheatsheet.pdf)
 
 ### Homework
 - start on group problem sets
