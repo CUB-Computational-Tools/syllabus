@@ -236,26 +236,11 @@ For some background and general reference on these tools, we recommend the onlin
   - [Dask cheat sheet](http://docs.dask.org/en/latest/_downloads/daskcheatsheet.pdf)
 
 ### Homework
+- create a problem set repo for your problem set team using [this template](https://classroom.github.com/g/WPSllYp_)
 - start on group problem sets
 - continue individual projects
-- create a particle.io account
-- install particle dev
 
 ## Week 8
-
-### Topics (in class)
-- microcontrollers
-- data logging
-
-### Homework
-- continue group problem sets
-- continue individual projects
-- tbc
-
-### Materials & Resources
-- tbc
-
-## Week 9 + 10
 
 ### Topics (in class)
 - loose ends (control structures? if, else, ifelse, case_when, etc.)
@@ -264,6 +249,21 @@ For some background and general reference on these tools, we recommend the onlin
 - Landlab
 - maybe: linting
 - maybe: data import/export
+
+### Homework
+- continue group problem sets
+- continue individual projects
+- create a particle.io account
+- install particle dev
+
+### Materials & Resources
+- tbc
+
+## Week 9 + 10
+
+### Topics (in class)
+- microcontrollers
+- data logging
 - tbc
 
 ### Homework
