@@ -243,21 +243,19 @@ For some background and general reference on these tools, we recommend the onlin
 ## Week 8
 
 ### Topics (in class)
+- wrap up package development
 - loose ends (control structures? if, else, ifelse, case_when, etc.)
 - parallelization and benchmarking
 - advanced numerical tools
-- Landlab
 - maybe: linting
-- maybe: data import/export
 
 ### Homework
 - continue group problem sets
 - continue individual projects
-- create a particle.io account
-- install particle dev
-
-### Materials & Resources
-- tbc
+- create a free account at [particle.io](https://login.particle.io/signup?redirect=https%3A%2F%2Fwww.particle.io%2F) (cloud service for remote microcontrollers)
+- install the [Particle Development Environment (IDE)](https://docs.particle.io/guide/tools-and-features/dev/)
+- install the [Particle Command Line Interface (CLI)](https://docs.particle.io/guide/tools-and-features/cli/photon/#installing)
+- optional but useful: install the Particle App on your phone ([iPhone](https://itunes.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054?mt=8), [Android](https://play.google.com/store/apps/details?id=io.particle.android.app), [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n))
 
 ## Week 9 + 10
 
