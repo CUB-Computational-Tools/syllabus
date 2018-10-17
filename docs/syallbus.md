@@ -216,24 +216,19 @@ For some background and general reference on these tools, we recommend the onlin
 ## Week 7
 
 ## Topics (in class)
-
 - unit testing
 - test-driven development
 - package development
 - error handling
-- parallel processing?
 
 ### Materials & Resources
+- [GitHub Desktop](https://desktop.github.com/)
 - Books/Articles:
   - [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/), especially the [chapter on Building R Packages](https://bookdown.org/rdpeng/RProgDA/building-r-packages.html)
   - [R packages](http://r-pkgs.had.co.nz/)
   - [Post on Testing & Packaging in Python](https://hynek.me/articles/testing-packaging/)
 - Quick references (cheat sheet)
   - [R Development Tools](https://raw.githubusercontent.com/rstudio/cheatsheets/master/package-development.pdf)
-- Parallel Processing
-  - [Mapping with Purrr](https://raw.githubusercontent.com/rstudio/cheatsheets/master/purrr.pdf)
-  - [Presentation on xarray and dask](https://www.ecmwf.int/sites/default/files/elibrary/2017/17837-xarray-n-d-labeled-arrays-and-datasets-python.pdf)
-  - [Dask cheat sheet](http://docs.dask.org/en/latest/_downloads/daskcheatsheet.pdf)
 
 ### Homework
 - create a problem set repo for your problem set team using [this template](https://classroom.github.com/g/WPSllYp_)
@@ -244,10 +239,13 @@ For some background and general reference on these tools, we recommend the onlin
 
 ### Topics (in class)
 - wrap up package development
-- loose ends (control structures? if, else, ifelse, case_when, etc.)
-- parallelization and benchmarking
-- advanced numerical tools
-- maybe: linting
+- loose ends
+- linting
+
+### Materials & Resources
+- [color blind color use](http://jfly.iam.u-tokyo.ac.jp/color/)
+- [R color palettes](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette)
+- [Linting in R](https://github.com/jimhester/lintr#rstudio): `devtools::install_github("jimhester/lintr")`
 
 ### Homework
 - continue group problem sets
@@ -272,6 +270,8 @@ For some background and general reference on these tools, we recommend the onlin
 - tbc
 
 ## Week 11
+- parallelization and benchmarking
+- advanced numerical tools
 
 ### Topics (in class)
 - loose ends
@@ -284,7 +284,11 @@ For some background and general reference on these tools, we recommend the onlin
 - continue individual projects
 
 ### Materials & Resources
-- tbc
+- Parallel Processing
+  - [Mapping with Purrr](https://raw.githubusercontent.com/rstudio/cheatsheets/master/purrr.pdf)
+  - [Presentation on xarray and dask](https://www.ecmwf.int/sites/default/files/elibrary/2017/17837-xarray-n-d-labeled-arrays-and-datasets-python.pdf)
+  - [Dask cheat sheet](http://docs.dask.org/en/latest/_downloads/daskcheatsheet.pdf)
+
 
 ## Week 12
 
