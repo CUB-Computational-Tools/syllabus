@@ -259,8 +259,7 @@ For some background and general reference on these tools, we recommend the onlin
 
 ### Topics (in class)
 - microcontrollers
-- data logging
-- tbc
+- start [microcontrollers intro](https://classroom.github.com/a/WntfaQBd)
 
 ### Homework
 - continue group problem sets
