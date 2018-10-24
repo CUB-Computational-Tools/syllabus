@@ -193,6 +193,7 @@ While your photon can run on its own away from your computer and you can flash c
 - find out your device's **MAC Address** (i.e. network ID) by following [these instructions](https://docs.particle.io/support/troubleshooting/troubleshooting-tools/photon/)
 - write down the mac address (good to keep these in a file), it should have the form `1a:2b:34:5c:6d:78`
 - send OIT (email: help@colorad.edu) an email along these lines:
+
  > Dear OIT, I am working with wireless micro-controllers for my project on XXXXX and would like to add a new device. Could you add the following MAC address for the new wifi-enabled micro controller (a particle photon with ARM Cortex M3 micro-controller and a Broadcom Wi-Fi chip) to the UCB Wireless network? My CU Boulder identikey is xxxxxxx.
 
  > 1a:2b:34:5c:6d:78
