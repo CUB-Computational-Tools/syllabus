@@ -215,7 +215,7 @@ For some background and general reference on these tools, we recommend the onlin
 
 ## Week 7
 
-## Topics (in class)
+### Topics (in class)
 - unit testing
 - test-driven development
 - package development
