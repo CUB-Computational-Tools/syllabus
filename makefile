@@ -9,8 +9,12 @@ py_venv := class
 file_folder := docs/lectures
 
 # file extensions
+md_ext := md
 rmd_ext := Rmd
 nb_ext := ipynb
+
+# find all md files
+md_doc_files := $(patsubst %.$(md_ext),%.html,$(wildcard $(file_folder)/*.$(md_ext)))
 
 # find all rmd files
 rmd_doc_files := $(patsubst %.$(rmd_ext),%.html,$(wildcard $(file_folder)/*.$(rmd_ext)))
@@ -22,12 +26,16 @@ nb_doc_files := $(patsubst %.$(nb_ext),%.html,$(wildcard $(file_folder)/*.$(nb_e
 all: lectures
 
 # rendered documents
-lectures: rmds nbs
+lectures: md rmds nbs
 		make $(file_folder)/index.html
+md: $(md_doc_files)
 rmds: $(rmd_doc_files)
 nbs: $(nb_doc_files)
 
 # render calls
+%_md.html: %_md.$(md_ext)
+	Rscript -e "rmarkdown::render('$<')"
+	touch $(file_folder)/index.Rmd
 %_rmd.html: %_rmd.$(rmd_ext)
 	Rscript -e "rmarkdown::render('$<')"
 	touch $(file_folder)/index.Rmd
