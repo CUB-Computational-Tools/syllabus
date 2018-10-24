@@ -255,18 +255,34 @@ For some background and general reference on these tools, we recommend the onlin
 - install the [Particle Command Line Interface (CLI)](https://docs.particle.io/guide/tools-and-features/cli/photon/#installing)
 - optional but useful: install the Particle App on your phone ([iPhone](https://itunes.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054?mt=8), [Android](https://play.google.com/store/apps/details?id=io.particle.android.app), [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n))
 
-## Week 9 + 10
+## Week 9
 
 ### Topics (in class)
-- microcontrollers
-- start [microcontrollers intro](https://classroom.github.com/a/WntfaQBd)
+- [microcontrollers intro](https://classroom.github.com/a/WntfaQBd)
+- microcontroller setup
+- compile & flash code
+- serial output
+- reading analog data
+- PWM output
 
 ### Homework
 - continue group problem sets
 - continue individual projects
 
 ### Materials & Resources
-- tbc
+- [C++ reference card](https://www.disi.unige.it/person/MoggiE/PG1-13/Cpp_reference.pdf)
+
+## Week 10
+
+### Topics (in class)
+- microcontrollers continued
+- sensors
+- data logging
+- communication
+
+### Homework
+- continue group problem sets
+- continue individual projects
 
 ## Week 11
 - parallelization and benchmarking
