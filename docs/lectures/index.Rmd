@@ -22,7 +22,7 @@ data_frame(
   src_file = html_file %>%
     str_replace(fixed("_nb.html"), "_nb.ipynb") %>%
     str_replace(fixed("_rmd.html"), "_rmd.Rmd") %>%
-    str_replace(fixed("_md.html"), "_md.md")
+    str_replace(fixed("_md.html"), "_md.Rmd")
 ) %>%
   filter(filepath != "index.html", !is.na(type)) %>%
   nest(-week) %>%

@@ -9,18 +9,21 @@ py_venv := class
 file_folder := docs/lectures
 
 # file extensions
-md_ext := md
+md_pre := md
+md_ext := Rmd
+rmd_pre := rmd
 rmd_ext := Rmd
+nb_pre := nb
 nb_ext := ipynb
 
 # find all md files
-md_doc_files := $(patsubst %.$(md_ext),%.html,$(wildcard $(file_folder)/*.$(md_ext)))
+md_doc_files := $(patsubst %.$(md_ext),%.html,$(wildcard $(file_folder)/*_$(md_pre).$(md_ext)))
 
 # find all rmd files
-rmd_doc_files := $(patsubst %.$(rmd_ext),%.html,$(wildcard $(file_folder)/*.$(rmd_ext)))
+rmd_doc_files := $(patsubst %.$(rmd_ext),%.html,$(wildcard $(file_folder)/*_$(rmd_pre).$(rmd_ext)))
 
 # find all ipynb files
-nb_doc_files := $(patsubst %.$(nb_ext),%.html,$(wildcard $(file_folder)/*.$(nb_ext)))
+nb_doc_files := $(patsubst %.$(nb_ext),%.html,$(wildcard $(file_folder)/*_$(nb_pre).$(nb_ext)))
 
 
 all: lectures
@@ -33,13 +36,13 @@ rmds: $(rmd_doc_files)
 nbs: $(nb_doc_files)
 
 # render calls
-%_md.html: %_md.$(md_ext)
+%_$(md_pre).html: %_$(md_pre).$(md_ext)
 	Rscript -e "rmarkdown::render('$<')"
 	touch $(file_folder)/index.Rmd
-%_rmd.html: %_rmd.$(rmd_ext)
+%_$(rmd_pre).html: %_$(rmd_pre).$(rmd_ext)
 	Rscript -e "rmarkdown::render('$<')"
 	touch $(file_folder)/index.Rmd
-%_nb.html: %_nb.$(nb_ext)
+%_$(nb_pre).html: %_$(nb_pre).$(nb_ext)
 	source activate $(py_venv) && jupyter nbconvert --to html --execute "$<"
 	touch $(file_folder)/index.Rmd
 
