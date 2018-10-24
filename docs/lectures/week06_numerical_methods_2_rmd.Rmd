@@ -1,0 +1,318 @@
+---
+title: "Numerical computation continued"
+subtitle: "1D diffusion model"
+author: "Sebastian Kopf & Greg Tucker"
+output:
+  html_document:
+    code_folding: show
+    df_print: paged
+    number_sections: no
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+editor_options:
+  chunk_output_type: inline
+---
+
+<!-- {% raw %} -->
+
+```{r setup, include=FALSE}
+library(reticulate)
+# load python
+use_condaenv("class", conda = "auto", required = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Problem setup
+
+## Conductive heat flow in soil
+
+We would like to calculate the temperature in the ground over time, in response to daily and annual cycles of surface temperature. We will assume that all heat flow occurs by conduction (and not, for example, by infiltrating water), that the thermal properties of the soil are constant, and that there are no internal heat sources or sinks (such as phase changes or radioactive heat production). We will also assume that the temperature is uniform in the horizontal, such that the problem is 1D (heat flow occurs only vertically).
+
+## Governing equation
+
+Under these conditions, the governing equation is:
+
+$$
+\frac{\partial T}{\partial t} = \kappa \frac{\partial^2 T}{\partial z^2}
+$$
+
+where $T$ is temperature at depth $z$, $t$ is time, and $\kappa$ is thermal diffusivity (in units of m$^2$/s).
+
+## Finite-difference approximation
+
+A finite-difference approximation of the above governing equation is:
+
+$$
+\frac{T_i^{k+1} - T_i^k}{\Delta t} = \frac{\kappa}{\Delta z^2} \left( T_{i+1}^k - 2 T_i^k + T_{i-1}^k \right)
+$$
+
+Here, we have divided the domain into a set of horizontal soil layers, each of which has thickness $\Delta z$. We'll refer to the center point in each layer as a *node*. Nodes will be numbered from top to bottom, starting with node 0, which represents the surface temperature. Time will be divided into a series of *time steps* of duration $\Delta t$. The superscript indicates the time step, and the subscript indicates the node number. Therefore, $T_i^k$ means temperature at node $i$ at time step $k$.
+
+This describes an *explicit* finite-difference method, because the temperature at the next time step is explicitly determined by the temperature at the same node and its two neighbors at the current time step. To see this, rearrange the above:
+
+$$
+T_i^{k+1} = T_i^k + \frac{\kappa \Delta t}{\Delta z^2} \left( T_{i+1}^k - 2 T_i^k + T_{i-1}^k \right)
+$$
+
+So, our job is set an initial temperature value at each node, and then iterate through a series of time steps, updating the temperature values along the way. First, though, let's think about *boundary conditions.*
+
+## Boundary conditions
+
+The temperature at the topmost node (node 0) will represent surface temperature. We will prescribe this value (ultimately, we want it to evolve over the course of a day and/or year). So we will use a fixed-value boundary condition at the top. For the bottom, it makes sense to assume that there is no flow of heat in or out. This is a fixed gradient boundary condition. A simple way to ensure this is to make the temperature of the bottom node (which is node $N-1$ if there are $N$ nodes) is always equal to that of its immediate neighbor ($N-2$).
+
+# Python
+
+## Parameters and data structures
+
+We'll use a Numpy array for our temperature values. We also need variables for $\Delta t$ (call it ``dt``), $\Delta z$ (``dz``), $N$, and $\kappa$ (``kappa``). First, some imports...
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+```
+
+Now, define parameters:
+
+```{python}
+N = 101  # number of nodes
+dz = 0.05  # node spacing (m)
+kappa = 1.0e-6  # thermal diffusivity (m2/s)
+run_duration = 10   # run duration (days)
+initial_temperature = 10.0  # starting temperature (deg C)
+mean_temperature = 10.0    # mean surface temperature (deg C)
+diurnal_temp_range = 5.0   # diurnal temperature half-range (deg C)
+period = 24.0 * 3600.0     # period of surface temp variation (s)
+plot_interval = 0.5 * 3600.0  # plot interval (s)
+plot_name = 'temp_profile' # base name for plot files
+```
+
+Set up an array for temperature:
+
+```{python}
+temp = np.zeros(N) + initial_temperature
+```
+
+Define time step size using CFL condition, and calculate the number of time steps (including conversion of run duration from days to seconds):
+
+```{python}
+dt = 0.2 * dz * dz / kappa
+num_time_steps = int(24 * 3600.0 * run_duration / dt)
+```
+
+Make an array called `inner` with all the node indices *except* top and bottom.
+
+```{python}
+inner = np.arange(1, N-2)  # indices of inner nodes
+```
+
+Define handy lumped variable $\alpha = \frac{\kappa \Delta t}{\Delta z^2}$:
+
+```{python}
+alpha = kappa * dt / (dz * dz)
+print(alpha)
+```
+
+## Plotting function and initial profile
+
+```{python}
+from os import path
+def plot_temp_profile(temp, depth, filename=None):
+    """Plot the temperature profile."""
+    plt.clf()
+    plt.plot(temp, z)
+    plt.gca().invert_yaxis()
+    plt.xlabel('TEMPERATURE (deg C)')
+    plt.ylabel('DEPTH (m)')
+    plt.xlim([mean_temperature - diurnal_temp_range,
+              mean_temperature + diurnal_temp_range])
+    
+    if filename is not None:
+        plt.savefig(path.join("fig_output", filename))
+```
+
+```{python}
+next_plot = plot_interval
+z = np.arange(N) * dz
+plt.clf()
+plot_temp_profile(temp, z, plot_name + '0000.png')
+plt.show()
+```
+
+## Main Loop
+
+```{python}
+for i in range(num_time_steps):
+    
+    # Update the surface temperature
+    temp[0] = (mean_temperature
+               + diurnal_temp_range * np.sin(2.0 * np.pi * i * dt / period))
+    
+    # Set lowest node temp equal to that of its neighbor
+    temp[-1] = temp[-2]
+    
+    # Update the inner-node temperature field
+    temp[inner] += (alpha
+                    * (temp[inner+1] - 2 * temp[inner] + temp[inner-1]))
+    
+    # Plot
+    if i * dt >= next_plot:
+        #plot_temp_profile(temp, z, plot_name + str(i).zfill(4) + '.png')
+        next_plot += plot_interval
+```
+
+## Final profile
+
+```{python}
+print(period)
+print(num_time_steps)
+plot_temp_profile(temp, z, plot_name + str(i).zfill(4) + '.png')
+plt.show()
+```
+
+## Animated Plot
+
+Generated separately from the pngs with [ImageMagick](https://www.imagemagick.org).
+
+```{r, out.width = "600px"}
+knitr::include_graphics(file.path("fig_output", "temp_profile.gif"))
+```
+
+# R
+
+```{r, message=FALSE}
+# load packages
+library(tidyverse)
+library(plotly)
+```
+
+
+## Parameters
+
+```{r}
+depth <- 5                       # depth of model (a bit smaller, not much happens < 3m)
+dz <- 0.05                       # node spacing (m)
+N <- as.integer(depth/dz) + 1L   # number of nodes
+kappa <- 1.0e-6                  # thermal diffusivity (m2/s)
+run_duration <- 10               # run duration (days)
+initial_temperature <- 10.0      # starting temperature (deg C)
+mean_temperature <- 10.0         # mean surface temperature (deg C)
+diurnal_temp_range <- 5.0        # diurnal temperature half-range (deg C)
+period <- 24.0 * 3600.0          # period of surface temp variation (s)
+plot_interval.s <- 0.5 * 3600.0  # plot interval (s)
+dt <- 0.2 * dz * dz / kappa      # define time step using CFL condition
+alpha <- kappa * dt / (dz * dz)  # lumped variable
+num_time_steps =                 # total number of time steps
+  round(24 * 3600.0 * run_duration / dt) + 1L
+```
+
+Set up a 2D array for temperature & time (i.e. pre-allocate all the necessary memory).
+
+```{r}
+# temperature array (good to initialize full size right away)
+temp = array(initial_temperature, dim = c(N, num_time_steps))
+str(temp)
+```
+
+## Main Loop
+
+$$
+T_i^{k+1} = T_i^k + \frac{\kappa \Delta t}{\Delta z^2} \left( T_{i+1}^k - 2 T_i^k + T_{i-1}^k \right)
+$$
+
+
+```{r}
+# let's use k the way it is defined in the finite-difference equation
+inner <- 2:(N-1) # inner indices of the spacial domain (i)
+for (k in 1:(num_time_steps - 1)) {
+  
+  # Update the surface temperature
+  temp[1, k+1] <- mean_temperature + 
+    diurnal_temp_range * sin(2.0 * pi * (k + 1) * dt / period)
+
+  # Update the inner-node temperature field
+  temp[inner, k+1] <- 
+    temp[inner, k] + 
+    alpha * (temp[inner+1, k] - 2 * temp[inner, k] + temp[inner-1, k])
+  
+  # Set lowest node temp equal to that of its neighbor
+  temp[N, k+1] <- temp[N-1, k]
+}
+```
+
+## Tidy Data
+
+```{r}
+# convert to tidy data for easy plotting
+plot_df <- temp %>% 
+  # turn matrix into data frame
+  as.data.frame.table() %>% 
+  # dplyr df
+  tbl_df() %>% 
+  # integer based indices
+  mutate_if(is.factor, as.integer) %>% 
+  # proper names
+  rename(depth_i = Var1, time_i = Var2, temp = Freq) %>% 
+  # add depth and time information
+  mutate(
+    # depth in meters
+    depth.m = (depth_i - 1) * dz,
+    # time in seconds
+    time.s = (time_i - 1) * dt,
+    # find the integer division to identify ploting frames
+    plot_frame = time.s %/% plot_interval.s
+  ) %>% 
+  # find first profile within each plotting frame
+  group_by(plot_frame) %>% 
+  mutate(first_frame = time_i == min(time_i)) %>%
+  ungroup() %>% 
+  # add time in days
+  mutate(time.d = round(time.s/3600/24, 3)) %>% 
+  # arrange by depth for easier quick check
+  arrange(depth_i)
+
+head(plot_df, 100)
+```
+
+## Visualize
+
+```{r, fig.width = 6, fig.height = 6}
+# generate plot template
+p <-
+  ggplot() +
+  aes(depth.m, temp, frame = time.d) + 
+  geom_line() +
+  theme_bw() + 
+  scale_x_reverse(expand = c(0, 0)) +
+  labs(x = "Depth [m]", y = "Temperature [C]")  +
+  coord_flip() 
+```
+
+### Static plot (start and end)
+
+```{r, fig.width = 6, fig.height = 4}
+# static plot of initial and final profile
+p %+% filter(plot_df, time_i %in% range(time_i)) +
+  facet_wrap(~time.d)
+```
+
+### Interactive plot
+
+```{r, fig.width = 6, fig.height = 6}
+# animate
+p %+% filter(plot_df, first_frame) %>% 
+  ggplotly() %>% 
+  animation_opts(
+    frame = 50, # in ms
+    transition = 0,
+    redraw = FALSE
+  ) %>% 
+  animation_slider(
+    currentvalue = list(
+      xanchor = "left",
+      prefix = "Time [days]: ", 
+      font = list(color="red"))
+  )
+```
+
+<!-- {% endraw %} -->

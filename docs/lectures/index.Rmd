@@ -12,20 +12,22 @@ library(tidyverse)
 data_frame(
   filepath = list.files(".", all.files = TRUE, pattern = "*\\.html$"),
   html_file = basename(filepath),
-  week = str_extract(html_file, "^week\\d+"),
+  ending = str_extract(html_file, "_(nb|rmd|md)\\.html"),
+  week = str_replace(html_file, fixed(ending), ""),
   type = case_when(
-    str_detect(html_file, fixed("_nb.html")) ~ "Jupyter Notebook",
-    str_detect(html_file, fixed("_rmd.html")) ~ "RMarkdown Notebook",
+    ending == "_nb.html" ~ "Jupyter Notebook",
+    ending == "_rmd.html" ~ "RMarkdown Notebook",
+    ending == "_md.html" ~ "Markdown File",
     TRUE ~ NA_character_),
-  src_file = html_file %>% 
-    str_replace(fixed("_nb.html"), "_nb.ipynb") %>% 
-    str_replace("_rmd.html", "_rmd.Rmd")
-) %>% 
-  filter(filepath != "index.html", !is.na(type)) %>% 
-  nest(-week) %>% 
+  src_file = html_file %>%
+    str_replace(fixed("_nb.html"), "_nb.ipynb") %>%
+    str_replace(fixed("_rmd.html"), "_rmd.Rmd") %>%
+    str_replace(fixed("_md.html"), "_md.md")
+) %>%
+  filter(filepath != "index.html", !is.na(type)) %>%
+  nest(-week) %>%
   with(walk2(week, data, function(week, data) {
-    cat("\n\n##", week, "\n")
+    cat("\n\n##", str_replace_all(week, "_", " ") %>% str_to_title(), "\n")
     cat(paste0("\n - [", data$type, "](", data$src_file, ") (rendered [HTML](", data$html_file, "))"))
   }))
 ```
-
