@@ -275,7 +275,7 @@ For some background and general reference on these tools, we recommend the onlin
 ## Week 10
 
 ### Topics (in class)
-- microcontrollers continued
+- [microcontrollers continued](https://classroom.github.com/a/yKODFv5b)
 - sensors
 - data logging
 - communication
