@@ -285,10 +285,9 @@ For some background and general reference on these tools, we recommend the onlin
 - continue individual projects
 
 ## Week 11
-- parallelization and benchmarking
-- advanced numerical tools
 
 ### Topics (in class)
+- [microcontrollers continued](https://classroom.github.com/a/YyJZdyVh)
 - loose ends
 - code optimization/problems Q&A
 - tips & tricks
