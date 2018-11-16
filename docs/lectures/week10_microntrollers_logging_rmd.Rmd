@@ -1,0 +1,108 @@
+---
+title: "Pulling microcontroller data from google spreadsheets"
+output:
+  html_document:
+    code_folding: show
+    df_print: paged
+    number_sections: no
+    toc: yes
+    toc_float: yes
+editor_options:
+  chunk_output_type: inline
+---
+
+# Install prereqs
+
+```{r, eval=FALSE}
+# R
+install.packages(c("googlesheets", "lubridate"))
+# python
+source activate class
+pip install gspread
+```
+
+# Pull data in R
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(googlesheets)
+library(lubridate)
+library(plotly)
+library(reticulate)
+# load python
+use_condaenv("class", conda = "auto", required = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Authenticate
+
+When you run `gs_auth()` for the first time (easiest from within RStudio rather than in the middle of a knitted doc!), it asks you for your google credentials and stores them in an `.httr-oauth` file. Delete this file to remove your credentials and NEVER commit an .httr-oauth file to github - best to always include the following lines in your `.gitignore` file:
+
+```
+# exclude authentication tokens
+.httr-oauth
+```
+
+```{r}
+gs_auth()
+```
+
+## Identify spreadsheet
+
+```{r}
+# identify spreadsheet by name
+spreadsheet_title <- "class log test"
+gs <- gs_title(spreadsheet_title)
+```
+
+## Read data from worksheet (tab)
+
+```{r}
+data <- gs %>% gs_read_csv(ws = "light")
+```
+
+## Process data
+
+The key is to adjust the timezone from the UTC based timestamp. Notice a couple of data outages.
+
+```{r}
+data %>% 
+  mutate(published_at = published_at %>% with_tz("America/Denver")) %>% 
+  ggplot() +
+  aes(x = published_at, y = cds, color = location) +
+  geom_line() +
+  scale_x_datetime() +
+  theme_bw()
+```
+
+Overplot individual days. Notice the shift in daylight savings that suddenly moved everything by an hour!
+
+```{r}
+data %>% 
+  mutate(
+    published_at = published_at %>% with_tz("America/Denver"),
+    day = paste(month(published_at, label = TRUE), day(published_at)),
+    time = published_at %>% { hour(.) + minute(.)/60 + second(.)/3600 }
+  ) %>% 
+  ggplot() +
+  aes(x = time, y = cds, color = day) +
+  geom_line() +
+  scale_x_continuous(breaks = 0:24, expand = c(0,.01)) +
+  theme_bw()
+```
+
+Interactive plot.
+
+```{r}
+ggplotly()
+```
+
+
+# Pull data in Python
+
+Use the [gspread](https://gspread.readthedocs.io/en/latest/) library. 
+
+```{python}
+import gspread
+```
+

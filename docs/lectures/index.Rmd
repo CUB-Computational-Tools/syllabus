@@ -1,12 +1,33 @@
 ---
-title: "Lectures"
-output: html_document
+title: "Resources"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
 ---
 
 ```{r setup, include=FALSE}
 library(tidyverse)
 ```
 
+## Repositories
+
+This is a list of template course repositories. You can use these most easily either by creating a private copy of each repository in the course GitHub Classroom (the `copy` link) and expanding on the template from there, or by downloading the repository and using whichever parts you find useful (the `download` link). If you create copies in GitHub classroom, you can keep them private or make them public and move them to your own GitHub account. Some repositories connect to specific lectures (e.g. those for package development) while others are more universally applicable (e.g. the notebooks playground template).
+
+- Notebooks Playground Template (R & python): [repo](https://github.com/2018-Computational-Tools/assignment_template), [copy](https://classroom.github.com/a/-QXQGmbx), [download](https://github.com/2018-Computational-Tools/assignment_template/archive/master.zip)
+
+- Python Package Development: [repo](https://github.com/2018-Computational-Tools/assignment_python_package), [copy](https://classroom.github.com/a/WrS9ncIn), [download](https://github.com/2018-Computational-Tools/assignment_python_package/archive/master.zip)
+
+- R Package Development: [repo](https://github.com/2018-Computational-Tools/assignment_R_package), [copy](https://classroom.github.com/a/7yVTG-L0), [download](https://github.com/2018-Computational-Tools/assignment_R_package/archive/master.zip)
+
+- Microcontrollers Intro: [repo](https://github.com/2018-Computational-Tools/assignment_microcontroller_intro), [copy](https://classroom.github.com/a/WntfaQBd), [download](https://github.com/2018-Computational-Tools/assignment_microcontroller_intro/archive/master.zip)
+
+- Microcontroller Data Logging: [repo](https://github.com/2018-Computational-Tools/assignment_microcontroller_logging), [copy](https://classroom.github.com/a/yKODFv5b), [download](https://github.com/2018-Computational-Tools/assignment_microcontroller_logging/archive/master.zip)
+
+- Microcontroller Communication: [repo](https://github.com/2018-Computational-Tools/assignment_microcontroller_communication), [copy](https://classroom.github.com/a/YyJZdyVh), [download](https://github.com/2018-Computational-Tools/assignment_microcontroller_communication/archive/master.zip)
+
+## Lectures
 
 ```{r, results='asis', echo=FALSE}
 data_frame(
@@ -27,7 +48,74 @@ data_frame(
   filter(filepath != "index.html", !is.na(type)) %>%
   nest(-week) %>%
   with(walk2(week, data, function(week, data) {
-    cat("\n\n##", str_replace_all(week, "_", " ") %>% str_to_title(), "\n")
+    cat("\n\n###", str_replace_all(week, "_", " ") %>% str_to_title(), "\n")
     cat(paste0("\n - [", data$type, "](", data$src_file, ") (rendered [HTML](", data$html_file, "))"))
   }))
 ```
+
+## Materials
+
+### Community & CU Boulder
+
+- [LISA](https://www.colorado.edu/lab/lisa/) (statistics lab)
+- [BTU Lab](https://www.colorado.edu/atlas/blow-things-btu-lab-0) (microcontroller workshop)
+- [PANGEO](http://pangeo.io/) (big data geoscience)
+- [CSDMS](https://csdms.colorado.edu/wiki/Main_Page) (earth surface processes)
+
+### Quick references (cheatsheets)
+
+- [Using Git cheatsheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
+- [Markdown (GitHub flavored) cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+- [latex math cheatsheet](https://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf)
+- [Jupyter Notebook cheatsheet](http://datacamp-community.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40)
+- [Python basics cheatsheet](http://datacamp-community.s3.amazonaws.com/e30fbcd9-f595-4a9f-803d-05ca5bf84612)
+- [RStudio cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rstudio-ide.pdf)
+- [RMarkdown cheatsheet](https://raw.githubusercontent.com/rstudio/Materials/master/rmarkdown-2.0.pdf)
+- [dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf)
+- [tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+- [ggplot cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf)
+- [numpy cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
+- [pandas cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PandasPythonForDataScience.pdf)
+- [matplotlib cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Python_Matplotlib_Cheat_Sheet.pdf)
+- [R Development Tools](https://raw.githubusercontent.com/rstudio/cheatsheets/master/package-development.pdf)
+- [C++ reference card](https://www.disi.unige.it/person/MoggiE/PG1-13/Cpp_reference.pdf)
+- [Mapping with Purrr](https://raw.githubusercontent.com/rstudio/cheatsheets/master/purrr.pdf)
+- [Dask cheat sheet](http://docs.dask.org/en/latest/_downloads/daskcheatsheet.pdf)
+
+### Documentation, Books & Misc.
+
+- [Jupyter Notebook documentation](https://jupyter-notebook.readthedocs.io/)
+  - [list of available kernels for other languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
+- [RMarkdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+  - [list of available engines for other languages](https://bookdown.org/yihui/rmarkdown/language-engines.html)
+- [R for Data Science Book](http://r4ds.had.co.nz/) ([GitHub repository](https://github.com/hadley/r4ds) that generates this book)
+- [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/) ([GitHub repository](https://github.com/clauswilke/dataviz) that generates this book)
+- [IPython Interactive Computing and Visualization Cookbook](https://www.packtpub.com/big-data-and-business-intelligence/ipython-interactive-computing-and-visualization-cookbook-second-e) ([GitHub repository](https://github.com/ipython-books/cookbook-2nd-code) with the exercises)
+- [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/), especially the [chapter on Building R Packages](https://bookdown.org/rdpeng/RProgDA/building-r-packages.html)
+- [R packages](http://r-pkgs.had.co.nz/)
+- [Post on Testing & Packaging in Python](https://hynek.me/articles/testing-packaging/)
+- [Presentation on xarray and dask](https://www.ecmwf.int/sites/default/files/elibrary/2017/17837-xarray-n-d-labeled-arrays-and-datasets-python.pdf)
+- [color blind color use](http://jfly.iam.u-tokyo.ac.jp/color/)
+- [R color palettes](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette)
+- [Linting in R](https://github.com/jimhester/lintr#rstudio)
+
+### Programs
+
+- [GitHub Desktop](https://desktop.github.com/)
+- Python and Jupyter
+   - recommend installing [anaconda](https://docs.anaconda.com/anaconda/install/) for python 3.6 (if you already have anaconda for python 2.7, no need to reinstall!)
+   - open a terminal and run `conda --version` to check the installed version (if lower than **conda 4.4**, recommend running `conda update conda`)
+   - create a virtual environment for python 3.6 that we will use for the class (that way you can easily keep/run other python versions/configurations) by running `conda create -n class python=3.6 anaconda`
+   - run `source activate class` (mac & linux) / `activate class` (windows) to test-activate the new virtual environment
+   - run `conda install -c conda-forge jupyterlab` to install jupyter lab
+   - run `jupyter labextension install @jupyterlab/toc` to install the [Table of Contents extension](https://github.com/jupyterlab/jupyterlab-toc)
+   - run `jupyter lab` to start jupyter lab
+   - run `source deactivate` (mac & linux) / `deactivate` (windows) to leave the virtual environment again
+- R and RStudio
+   - install the newest version of [R](https://cloud.r-project.org/) (should be 3.5.1), if you have older versions you want to keep you will still have access (see [details on version switching](https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-RStudio-desktop))
+   - install/upgrade to the [preview of the newest version of RStudio](https://www.rstudio.com/products/rstudio/download/preview/) (should be >= 1.2.907)
+   - start RStudio
+   - in the console, run `install.packages(c("devtools", "tidyverse", "rmarkdown", "reticulate", "readxl", "latex2exp"))`
+
+
+
