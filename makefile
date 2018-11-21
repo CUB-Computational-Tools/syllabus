@@ -6,7 +6,7 @@
 py_venv := class
 
 # adjust the file folder as needed
-file_folder := docs/lectures
+file_folder := docs/resources
 
 # file extensions
 md_pre := md
