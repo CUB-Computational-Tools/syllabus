@@ -27,6 +27,10 @@ This is a list of template course repositories. You can use these most easily ei
 
 - Microcontroller Communication: [repo](https://github.com/2018-Computational-Tools/assignment_microcontroller_communication), [copy](https://classroom.github.com/a/YyJZdyVh), [download](https://github.com/2018-Computational-Tools/assignment_microcontroller_communication/archive/master.zip)
 
+- Problem Set / Binder Setup: [repo](https://github.com/2018-Computational-Tools/assignment_problem_set), [download](https://github.com/2018-Computational-Tools/assignment_problem_set/archive/master.zip)
+  - RStudio: [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/2018-Computational-Tools/assignment_problem_set/master?urlpath=rstudio)
+  - Jupyter Lab: [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/2018-Computational-Tools/assignment_problem_set/master?urlpath=lab)
+
 ## Lectures
 
 ```{r, results='asis', echo=FALSE}
@@ -99,7 +103,7 @@ data_frame(
 - [R color palettes](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette)
 - [Linting in R](https://github.com/jimhester/lintr#rstudio)
 
-### Programs
+### Software
 
 - [GitHub Desktop](https://desktop.github.com/)
 - Python and Jupyter
@@ -116,6 +120,3 @@ data_frame(
    - install/upgrade to the [preview of the newest version of RStudio](https://www.rstudio.com/products/rstudio/download/preview/) (should be >= 1.2.907)
    - start RStudio
    - in the console, run `install.packages(c("devtools", "tidyverse", "rmarkdown", "reticulate", "readxl", "latex2exp"))`
-
-
-
