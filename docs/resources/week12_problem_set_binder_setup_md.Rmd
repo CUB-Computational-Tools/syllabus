@@ -6,7 +6,7 @@ output:
     toc_float: yes
 ---
 
-This repo contains problem set templates for R and python and the [binder](https://mybinder.readthedocs.io) settings to respectively run them in RStudio and Jupyter Lab (alghouth you *could* run both R and python in either IDE). Once ready for student usage, make sure to cleanup unused files and adjust the binder settings as described below.
+[This repo](https://github.com/2018-Computational-Tools/assignment_problem_set) contains problem set templates for R and python and the [binder](https://mybinder.readthedocs.io) settings to respectively run them in RStudio and Jupyter Lab (alghouth you *could* run both R and python in either IDE). Once ready for student usage, make sure to cleanup unused files and adjust the binder settings as described below.
 
 # Cleanup
 
