@@ -1476,7 +1476,7 @@ div.tocify {
 </div>
 
 
-<p><a href="https://github.com/2018-Computational-Tools/assignment_problem_set">This repo</a> contains problem set templates for R and python and the <a href="https://mybinder.readthedocs.io">binder</a> settings to respectively run them in RStudio and Jupyter Lab (alghouth you <em>could</em> run both R and python in either IDE). Once ready for student usage, make sure to cleanup unused files and adjust the binder settings as described below.</p>
+<p><a href="https://github.com/2018-Computational-Tools/assignment_problem_set">This repo</a> contains problem set templates for R and python and the <a href="https://mybinder.readthedocs.io">binder</a> settings to respectively run them in RStudio and Jupyter Lab (although you <em>could</em> run both R and python in either IDE). Once ready for student usage, make sure to cleanup unused files and adjust the binder settings as described below.</p>
 <div id="cleanup" class="section level1">
 <h1>Cleanup</h1>
 <p>Generally, it is good to clean up the repo once ready for student usage by deleting unused files in the main and subdirectories. This also prevents your binder environment from installing more than is necessary. Key files to <strong>keep</strong> for R/python, respectively (keep both if you want to run both) in addition to your problem set notebook files:</p>
@@ -1491,7 +1491,7 @@ div.tocify {
 <div id="python" class="section level2">
 <h2>Python</h2>
 <ul>
-<li><code>binder/requirements.yml</code></li>
+<li><code>binder/environment.yml</code></li>
 <li><code>binder/postBuild</code></li>
 <li><code>scripts/functions.py</code> (if any functions)</li>
 <li><code>scripts/__init__.py</code> (if any functions)</li>
@@ -1512,8 +1512,8 @@ div.tocify {
 <div id="python-1" class="section level2">
 <h2>Python</h2>
 <ul>
-<li>modify the <code>binder/requirements.yml</code> file to specify the dependencies. The file is a standard conda config file and thus supports conda packages as well as pip installations.</li>
-<li>modify the <code>binder/postBuild</code> file for any JupyterLab extensions as well as an explicit <code>pip install</code> command for the dependencies in case you want to run <code>R</code> and <code>python</code> in the same binder (i.e. if you have a <code>binder/install.R</code> file present, in which case your <code>requirements.yml</code> will be ignored)</li>
+<li>modify the <code>binder/environment.yml</code> file to specify the dependencies. The file is a standard <a href="https://conda.io/docs/user-guide/tasks/manage-environments.html#create-env-file-manually">conda environment config file</a> and thus supports conda packages, version definitions, multiple source channels as well as pip installations.</li>
+<li>modify the <code>binder/postBuild</code> file for any JupyterLab extensions or other direct install commands</li>
 </ul>
 </div>
 <div id="link" class="section level2">
