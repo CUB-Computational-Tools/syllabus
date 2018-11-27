@@ -65,6 +65,7 @@ data_frame(
 - [BTU Lab](https://www.colorado.edu/atlas/blow-things-btu-lab-0) (microcontroller workshop)
 - [PANGEO](http://pangeo.io/) (big data geoscience)
 - [CSDMS](https://csdms.colorado.edu/wiki/Main_Page) (earth surface processes)
+- [LANDLAB](https://landlab.github.io) (earth surface processes)
 
 ### Quick references (cheatsheets)
 
