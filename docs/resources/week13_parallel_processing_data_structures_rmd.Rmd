@@ -1,0 +1,254 @@
+---
+title: "Parallel computing"
+output:
+  html_document:
+    code_folding: show
+    df_print: paged
+    number_sections: no
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+editor_options:
+  chunk_output_type: inline
+---
+
+
+```{r install, eval=FALSE, include=FALSE}
+# parallelization
+install.packages("future")
+install.packages("furrr")
+
+# timing functions & progress
+install.packages("tictoc")
+install.packages("microbenchmark")
+install.packages("progress")
+
+# advanced example
+install.packages("Julia")
+```
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Resources
+
+ - https://www.jottr.org/2017/06/05/many-faced-future/
+ - https://github.com/HenrikBengtsson/future
+ - https://davisvaughan.github.io/furrr/
+
+# Timing functions
+
+```{r}
+library(microbenchmark)
+tm <- microbenchmark(
+  rchisq(100, 0),
+  rchisq(100, 1),
+  rchisq(100, 2),
+  rchisq(100, 3),
+  rchisq(100, 5), times = 1000L)
+print(tm)
+autoplot(tm)
+```
+
+```{r}
+library(tictoc)
+tic()
+x <- runif(1e7)
+toc()
+
+tic("outer")
+x1 <- runif(1e7)
+tic("middle")
+x2 <- runif(1e7)
+tic("inner")
+x3 <- runif(1e7)
+toc()
+toc()
+toc()
+```
+
+# Setting up multiprocess
+
+```{r}
+# general purpose parallelization package
+library(future)
+availableCores()
+plan(multiprocess)
+```
+
+# Running map functions in parallel
+
+Note: `purrr` is planning built-in parallelization support in the near future but in the mean time `furrr` provides `future` versions of the most common functions.
+
+```{r}
+library(furrr)
+df <- 
+  data_frame(
+    mean = 1:4
+  )
+
+# sequential
+tic()
+df2 <- df %>% 
+  mutate(
+    norm_sd = map_dbl(mean, ~rnorm(1e7, mean = .x) %>% sd())
+  )
+toc()
+
+# parallel
+tic()
+df2 <- df %>% 
+  mutate(
+    norm_sd = future_map_dbl(mean, ~rnorm(1e7, mean = .x) %>% sd())
+  )
+toc()
+```
+
+## Caveat
+
+Sending large data sets between cores makes even parallel things slower!
+
+```{r}
+# sequential
+tic()
+df2 <- df %>% 
+  mutate(
+    data = map(mean, ~rnorm(1e7, mean = .x)),
+    norm_sd = map_dbl(data, ~sd(.x))
+  )
+toc()
+
+# parallel
+tic()
+df2 <- df %>% 
+  mutate(
+    data = future_map(mean, ~rnorm(1e7, mean = .x)),
+    norm_sd = future_map_dbl(data, ~sd(.x))
+  )
+toc()
+```
+
+## Progress Bar
+
+```{r}
+# not built into purrr yet but will come
+# this type of progress bar is only visible in interactive use (not knitted)
+library(progress)
+df <- data_frame(mean = 1:100)
+pb <- progress_bar$new(
+  total = nrow(df), 
+  format = "(:spin) [:bar] :percent :elapsed")
+
+tic()
+df <- df %>% 
+  mutate(
+    data = map(mean, ~{
+      pb$tick(); rnorm(1e6, mean = .x); .x
+    })
+  )
+toc()
+```
+
+```{r}
+# parallel processing with furrr (build-in progress bar)
+tic()
+df %>% 
+  mutate(
+    data = future_map(mean, ~rnorm(1e6, mean = .x), .progress = TRUE)
+  )
+toc()
+```
+
+
+# Parallel Fun with Fractals
+
+```{r}
+library("Julia")
+#' convert julia set output to a tidy data frame
+convert_julia_to_data_frame <- function(set) {
+  # convert to dplyr data frame
+  set %>% as.data.frame.table() %>% tbl_df() %>%
+    # rename dimensions and value
+    rename(x = Var1, y = Var2, value = Freq) %>%
+    # convert dimensions to numbers
+    mutate_if(is.factor, as.integer)
+}
+#' plot julia set
+plot_julia_data_frame <-
+  function(julia_df, colors = topo.colors(16)) {
+    julia_df %>%
+      ggplot() +
+      aes(x, y, fill = value) +
+      geom_raster() +
+      scale_fill_gradientn(colors = colors) +
+      coord_equal() +
+      scale_x_continuous(expand = c(0, 0)) +
+      scale_y_continuous(expand = c(0, 0))
+  }
+```
+
+## Example
+
+```{r}
+library(tictoc)
+tic()
+set <- JuliaImage(500, centre = 0 + 0i, L = 3.5, C = -0.4 + 0.6i)
+set %>% convert_julia_to_data_frame() %>% plot_julia_data_frame()
+toc()
+```
+
+## Different Fractals
+
+```{r}
+Cs <- c(
+  a = -0.618,
+  b = -0.4     + 0.6i,
+  c =  0.285   + 0i,
+  d =  0.285   + 0.01i,
+  e = -0.70176 - 0.3842i,
+  f =  0.835   - 0.2321i,
+  g = -0.8     + 0.156i,
+  h = -0.7269  + 0.1889i,
+  i =          - 0.8i
+)
+Cs
+```
+
+```{r}
+# sequential
+tic()
+pset <- 
+  Cs %>%
+  map(~JuliaImage(500, centre = 0 + 0i, L = 3.5, C = .x))
+toc()
+```
+
+```{r}
+library(future)
+library(furrr)
+# parallel
+tic()
+pset <- 
+  Cs %>%
+  future_map(~JuliaImage(500, centre = 0 + 0i, L = 3.5, C = .x), .progress = TRUE)
+toc()
+```
+
+### Visualize
+
+```{r}
+plot_df <-
+  data_frame(
+    set = names(pset),
+    data = map(pset, convert_julia_to_data_frame)
+  ) 
+plot_df
+```
+
+```{r, fig.width=12, fig.height=12}
+plot_df %>% unnest(data) %>% plot_julia_data_frame() + facet_wrap(~set)
+```
+
