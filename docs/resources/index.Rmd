@@ -89,6 +89,7 @@ data_frame(
 
 ### Documentation, Books & Misc.
 
+- [Teaching and Learning with Jupyter](https://jupyter4edu.github.io/jupyter-edu-book/)
 - [Jupyter Notebook documentation](https://jupyter-notebook.readthedocs.io/)
   - [list of available kernels for other languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
 - [RMarkdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
