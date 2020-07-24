@@ -15,21 +15,21 @@ library(tidyverse)
 
 This is a list of template course repositories. You can use these most easily either by creating a private copy of each repository in the course GitHub Classroom (the `copy` link) and expanding on the template from there, or by downloading the repository and using whichever parts you find useful (the `download` link). If you create copies in GitHub classroom, you can keep them private or make them public and move them to your own GitHub account. Some repositories connect to specific lectures (e.g. those for package development) while others are more universally applicable (e.g. the notebooks playground template).
 
-- Notebooks Playground Template (R & python): [repo](https://github.com/2018-Computational-Tools/assignment_template), [copy](https://classroom.github.com/a/-QXQGmbx), [download](https://github.com/2018-Computational-Tools/assignment_template/archive/master.zip)
+- Notebooks Playground Template (R & python): [repo](https://github.com/CUB-computational-tools/assignment_template), [copy](https://classroom.github.com/a/-QXQGmbx), [download](https://github.com/CUB-computational-tools/assignment_template/archive/master.zip)
 
-- Python Package Development: [repo](https://github.com/2018-Computational-Tools/assignment_python_package), [copy](https://classroom.github.com/a/WrS9ncIn), [download](https://github.com/2018-Computational-Tools/assignment_python_package/archive/master.zip)
+- Python Package Development: [repo](https://github.com/CUB-computational-tools/assignment_python_package), [copy](https://classroom.github.com/a/WrS9ncIn), [download](https://github.com/CUB-computational-tools/assignment_python_package/archive/master.zip)
 
-- R Package Development: [repo](https://github.com/2018-Computational-Tools/assignment_R_package), [copy](https://classroom.github.com/a/7yVTG-L0), [download](https://github.com/2018-Computational-Tools/assignment_R_package/archive/master.zip)
+- R Package Development: [repo](https://github.com/CUB-computational-tools/assignment_R_package), [copy](https://classroom.github.com/a/7yVTG-L0), [download](https://github.com/CUB-computational-tools/assignment_R_package/archive/master.zip)
 
-- Microcontrollers Intro: [repo](https://github.com/2018-Computational-Tools/assignment_microcontroller_intro), [copy](https://classroom.github.com/a/WntfaQBd), [download](https://github.com/2018-Computational-Tools/assignment_microcontroller_intro/archive/master.zip)
+- Microcontrollers Intro: [repo](https://github.com/CUB-computational-tools/assignment_microcontroller_intro), [copy](https://classroom.github.com/a/WntfaQBd), [download](https://github.com/CUB-computational-tools/assignment_microcontroller_intro/archive/master.zip)
 
-- Microcontroller Data Logging: [repo](https://github.com/2018-Computational-Tools/assignment_microcontroller_logging), [copy](https://classroom.github.com/a/yKODFv5b), [download](https://github.com/2018-Computational-Tools/assignment_microcontroller_logging/archive/master.zip)
+- Microcontroller Data Logging: [repo](https://github.com/CUB-computational-tools/assignment_microcontroller_logging), [copy](https://classroom.github.com/a/yKODFv5b), [download](https://github.com/CUB-computational-tools/assignment_microcontroller_logging/archive/master.zip)
 
-- Microcontroller Communication: [repo](https://github.com/2018-Computational-Tools/assignment_microcontroller_communication), [copy](https://classroom.github.com/a/YyJZdyVh), [download](https://github.com/2018-Computational-Tools/assignment_microcontroller_communication/archive/master.zip)
+- Microcontroller Communication: [repo](https://github.com/CUB-computational-tools/assignment_microcontroller_communication), [copy](https://classroom.github.com/a/YyJZdyVh), [download](https://github.com/CUB-computational-tools/assignment_microcontroller_communication/archive/master.zip)
 
-- Problem Set / Binder Setup: [repo](https://github.com/2018-Computational-Tools/assignment_problem_set), [download](https://github.com/2018-Computational-Tools/assignment_problem_set/archive/master.zip)
-  - RStudio: [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/2018-Computational-Tools/assignment_problem_set/master?urlpath=rstudio)
-  - Jupyter Lab: [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/2018-Computational-Tools/assignment_problem_set/master?urlpath=lab)
+- Problem Set / Binder Setup: [repo](https://github.com/CUB-computational-tools/assignment_problem_set), [download](https://github.com/CUB-computational-tools/assignment_problem_set/archive/master.zip)
+  - RStudio: [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/CUB-computational-tools/assignment_problem_set/master?urlpath=rstudio)
+  - Jupyter Lab: [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/CUB-computational-tools/assignment_problem_set/master?urlpath=lab)
 
 ## Lectures
 

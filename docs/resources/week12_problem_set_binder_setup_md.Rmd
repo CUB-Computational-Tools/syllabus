@@ -6,7 +6,7 @@ output:
     toc_float: yes
 ---
 
-[This repo](https://github.com/2018-Computational-Tools/assignment_problem_set) contains problem set templates for R and python and the [binder](https://mybinder.readthedocs.io) settings to respectively run them in RStudio and Jupyter Lab (although you *could* run both R and python in either IDE). Once ready for student usage, make sure to cleanup unused files and adjust the binder settings as described below.
+[This repo](https://github.com/CUB-computational-tools/assignment_problem_set) contains problem set templates for R and python and the [binder](https://mybinder.readthedocs.io) settings to respectively run them in RStudio and Jupyter Lab (although you *could* run both R and python in either IDE). Once ready for student usage, make sure to cleanup unused files and adjust the binder settings as described below.
 
 # Cleanup
 
@@ -44,18 +44,18 @@ Once ready for student use, make sure to modify the files in the `binder` sub-di
 
 Modify the following link to launch your repo in an RStudio binder (`USER`, `REPO`, `BRANCH`): `http://beta.mybinder.org/v2/gh/USER/REPO/BRANCH?urlpath=rstudio`
 
-> Example (for this repo): `http://beta.mybinder.org/v2/gh/2018-Computational-Tools/assignment_problem_set/master?urlpath=rstudio`
+> Example (for this repo): `http://beta.mybinder.org/v2/gh/CUB-computational-tools/assignment_problem_set/master?urlpath=rstudio`
 
 Modify the following markdown code to create a launch badge: `[![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/USER/REPO/BRANCH?urlpath=rstudio)`
 
-> Example (click on it to launch binder for this repo): [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/2018-Computational-Tools/assignment_problem_set/master?urlpath=rstudio)
+> Example (click on it to launch binder for this repo): [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/CUB-computational-tools/assignment_problem_set/master?urlpath=rstudio)
  
 ### Jupyter Lab
 
 Modify the following link to launch your repo in an RStudio binder (`USER`, `REPO`, `BRANCH`): `http://beta.mybinder.org/v2/gh/USER/REPO/BRANCH?urlpath=lab`
 
-> Example (for this repo): `http://beta.mybinder.org/v2/gh/2018-Computational-Tools/assignment_problem_set/master?urlpath=lab`
+> Example (for this repo): `http://beta.mybinder.org/v2/gh/CUB-computational-tools/assignment_problem_set/master?urlpath=lab`
 
 Modify the following markdown code to create a launch badge: `[![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/USER/REPO/BRANCH?urlpath=lab)`
 
-> Example (click on it to launch binder for this repo): [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/2018-Computational-Tools/assignment_problem_set/master?urlpath=lab)
+> Example (click on it to launch binder for this repo): [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/CUB-computational-tools/assignment_problem_set/master?urlpath=lab)
